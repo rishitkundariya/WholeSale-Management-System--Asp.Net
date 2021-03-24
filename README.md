@@ -1,2 +1,10 @@
-# AutoSparePartWholeSaleManagementSystem
-I have created ERP for Management of Wholesale Items. In this it's keep the record of all the items which are for sell and keep the record of Retailers and Supplier. It's also include Simple Billing module which make bill and track the record of the bills. This ERP also contain the system for maintain Credit and Debit account.
+<h1> Auto Spare Part Wholesale Management System</h1>
+       <h4>
+            <ul>
+                <li>This management system is for Auto Spare Part Wholesaler.</li> <br />
+                <li>It is manage records like Retailers details, Product Details, Brand Details, Supplier Details.</li><br />
+                <li>It also manage Account Details like Credit and Debit.</li><br />
+                <li>It is also include Simple Billing module.</li><br />
+                <li>This sysytem is devlop in 3 tier architechture.</li>
+             </ul>
+       </h4>
