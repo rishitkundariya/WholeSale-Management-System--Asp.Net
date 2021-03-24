@@ -17,17 +17,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-9" style="float:right">
+            <div class="col-md-12" style="float:left">
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" EnableViewState="False"></asp:Label>
             </div>
-            <div class="col-md-2 margin-10" style="float:right" >
-                <asp:Button ID="btnAddRetailer" runat="server" Text="Add Retailer" CssClass="btn btn-primary"  style="float:right" OnClick="btnAddRetailer_Click"/>
+            </div>
+         <div class="row">
+            <div class="col-md-12 margin-10" style="float:right" >
+                <asp:Button ID="btnAddRetailer" runat="server" Text="Add Retailer" CssClass="btn btn-primary btntras"  style="float:right" OnClick="btnAddRetailer_Click"/>
             </div>
         </div>
                
        <div class="row">
             <div class="col-md-12 table-responsive shadow-sm p-3 mb-5 bg-white rounded ">
-               <asp:GridView ID="gvRetailerList" runat="server" CssClass="table table-bordered table-hover table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvRetailerList_RowCommand">  
+               <asp:GridView ID="gvRetailerList" runat="server" CssClass="table table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvRetailerList_RowCommand">  
                    <columns>
                        <asp:TemplateField HeaderText="Sr No">
                         <ItemTemplate>
@@ -44,8 +46,11 @@
                     <asp:BoundField DataField="Email" HeaderText="Email"  />
                        <asp:TemplateField ItemStyle-Width="200px">
                            <ItemTemplate  >
-                                <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn rounded-pill btn-danger btn-sm margin-right-5 margin-bottom-5 "  CommandName="DeleteItem" CommandArgument='<%#Eval("RetailerID")%>'  />
-                                 <asp:Button ID="hypEdit" runat="server" CssClass="btn rounded-pill btn-dark btn-sm margin-right-5 margin-bottom-5 " CommandName="Edit"
+                                <asp:ImageButton ID="btnDelete" runat="server" CssClass="mr-10 margin-bottom-5 btntras hrightwidth"
+                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                    CommandName="DeleteItem" CommandArgument='<%#Eval("RetailerID")%>'  />
+                                 <asp:ImageButton ID="hypEdit" runat="server" CssClass=" margin-bottom-5 btntras hrightwidth" CommandName="Edit"
+                                        ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
                                      CommandArgument='<%#"~/Content/ASPWMS/Retailer/RetailerAddEdit.aspx?RetailerID=" + Eval("RetailerID").ToString() %>' Text="Edit" />
                            </ItemTemplate>
 

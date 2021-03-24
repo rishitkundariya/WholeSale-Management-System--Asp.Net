@@ -23,8 +23,8 @@
         </div>
     
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Bike Name &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b><span class="text-danger">*</span> Bike Name &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -37,8 +37,8 @@
         </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Company Name &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b><span class="text-danger">*</span> Company Name &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -51,8 +51,8 @@
         </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span>  Model Number &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b><span class="text-danger">*</span>  Model Number &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -66,8 +66,8 @@
          </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b>  &nbsp;&nbsp; Bike Model year &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b>  &nbsp;&nbsp; Bike Model year &nbsp;:</b>
             </div>
             
             <div class="col-md-4">

@@ -1,0 +1,44 @@
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" >
+	<system.web>
+    <compilation>
+     <assemblies>
+        </assemblies>
+    </compilation>
+    <pages >
+    <controls>
+<add assembly="Microsoft.AspNet.Web.Optimization.WebForms" namespace="Microsoft.AspNet.Web.Optimization.WebForms" tagPrefix="webopt"  />
+      </controls></pages>
+   <httpHandlers >
+      <add verb="*" path="captimage.axd" type="Syncfusion.JavaScript.ImageHandler, Syncfusion.EJ, Version=18.4450.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" xdt:Transform="Remove" xdt:Locator="Match(type)" />
+    </httpHandlers>
+    <profile defaultProvider="DefaultProfileProvider">
+      <providers>
+      
+</providers>
+    </profile>
+    <membership defaultProvider="DefaultMembershipProvider">
+      <providers>
+      
+</providers>
+    </membership>
+    <roleManager defaultProvider="DefaultRoleProvider">
+      <providers>
+      
+</providers>
+    </roleManager>
+    <!--
+            If you are deploying to a cloud environment that has multiple web server instances,
+            you should change session state mode from "InProc" to "Custom". In addition,
+            change the connection string named "DefaultConnection" to connect to an instance
+            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+      -->
+    
+  </system.web>
+  <system.webServer>
+     <validation validateIntegratedModeConfiguration="false"/>
+    <modules runAllManagedModulesForAllRequests="true"/>
+  <handlers>
+      <add verb="*" path="captimage.axd" name="syncfusion_generatetools" type="Syncfusion.JavaScript.ImageHandler, Syncfusion.EJ, Version=18.4450.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" xdt:Transform="Remove" xdt:Locator="Match(type)" />
+    </handlers>
+  </system.webServer>
+</configuration>

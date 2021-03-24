@@ -36,7 +36,7 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
         #region  and variable declaration with serverside validation
         CityENT entCity = new CityENT();
 
-        if (txtCityName.Text == null)
+        if (txtCityName.Text.Trim() == null)
             lblMessage.Text += "Enter City name";
         if (lblMessage.Text != "")
         {
@@ -45,7 +45,8 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
         else
         {
             entCity.CityName = txtCityName.Text.Trim();
-            entCity.Pincode = txtPincode.Text.Trim();
+            if(txtPincode.Text.Trim() != "")
+             entCity.Pincode = txtPincode.Text.Trim();
         }
 
         #endregion

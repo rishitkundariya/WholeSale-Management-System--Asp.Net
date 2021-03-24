@@ -54,9 +54,9 @@ public partial class Content_ASPWMS_Brand_BrandAddEdit : System.Web.UI.Page
     {
         #region Server Side Validation
         BrandENT entBrand = new BrandENT();
-        if (txtBrandName.Text == null)
+        if (txtBrandName.Text.Trim() == null)
             lblMessage.Text += "Enter Brand name </br>";
-        if (txtBrandSortName.Text == null)
+        if (txtBrandSortName.Text.Trim() == null)
             lblMessage.Text += "Enter Brand Sortname </br>";
         if (lblMessage.Text != "")
         {

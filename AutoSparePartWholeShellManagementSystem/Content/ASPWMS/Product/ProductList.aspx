@@ -22,13 +22,17 @@
             <div class="col-md-9" style="float: right">
                 <asp:label id="lblMessage" runat="server" text="" cssclass="text-danger"></asp:label>
             </div>
-            <div class="col-md-2 margin-10" style="float: right">
-                <asp:button id="btnAdd" runat="server" text="Add Product" cssclass="btn btn-primary" style="float: right" onclick="btnAdd_Click" />
+           
+        </div>
+        <div class="row" >
+            <div class="col-md-12" >
+                <asp:button id="btnAdd" runat="server" text="Add Product" cssclass="btn btn-primary btntras" style="margin-bottom:10px;float:right" onclick="btnAdd_Click" />
+            
             </div>
         </div>
         <div class="row">
-            <div class="col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded ">
-                <asp:gridview id="gvProduct" runat="server" cssclass="table table-bordered table-hover table-striped thead-dark" autogeneratecolumns="False" onrowcommand="gvProduct_RowCommand">
+            <div class="offset-1 col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded ">
+                <asp:gridview id="gvProduct" runat="server" cssclass="table table-bordered table-striped thead-dark" autogeneratecolumns="False" onrowcommand="gvProduct_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="Sr No">
                          <ItemTemplate>
@@ -42,8 +46,15 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn rounded-pill btn-danger btn-sm margin-right-5 margin-bottom-5 " CommandName="DeleteItem" CommandArgument='<%#Eval("ProductID")%>' />
-                                <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-dark btn-sm rounded-pill margin-right-5 margin-bottom-5 " CommandName="Edit" CommandArgument='<%#"~/Content/ASPWMS/Product/ProductAddEdit.aspx?ProductID=" + Eval("ProductID").ToString() %>' Text="Edit" />
+                                <asp:ImageButton ID="btnDelete" runat="server" Text="Delete" CssClass="hrightwidth mr-10 margin-bottom-5 btntras" 
+                                    CommandName="DeleteItem" 
+                                    ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                    CommandArgument='<%#Eval("ProductID")%>' />
+                                <asp:ImageButton ID="btnEdit" runat="server" 
+                                    CssClass="margin-bottom-5 btntras hrightwidth" 
+                                    CommandName="Edit" 
+                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
+                                    CommandArgument='<%#"~/Content/ASPWMS/Product/ProductAddEdit.aspx?ProductID=" + Eval("ProductID").ToString() %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

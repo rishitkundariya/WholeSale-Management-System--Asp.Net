@@ -63,20 +63,20 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
     {
         BikeBAL balBike = new BikeBAL();
         BikeENT entBike = new BikeENT();
-        if (txtBikeName.Text != null)
+        if (txtBikeName.Text.Trim() != null)
             entBike.BikeName = txtBikeName.Text.Trim();
         else
             lblMessage.Text += "Enter Bike Name </br>";
 
-        if (txtCompanyName.Text != null)
+        if (txtCompanyName.Text.Trim() != null)
             entBike.CompanyName = txtCompanyName.Text.Trim();
         else
             lblMessage.Text += "Enter Company Name </br>";
 
-        if (txtBikeModelYear.Text != null)
+        if (txtBikeModelYear.Text.Trim() != null)
             entBike.BikeModelYear = txtBikeModelYear.Text.Trim();
 
-        if (txtBikeModelNumber.Text != null)
+        if (txtBikeModelNumber.Text.Trim() != null)
             entBike.BikeModelNumber = txtBikeModelNumber.Text.Trim();
         else
             lblMessage.Text += "Enter Bike Model Number </br>";
@@ -86,6 +86,7 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
             lblMessage.CssClass = "text-danger";
             return;
         }
+        
 
         #region Save or Update data
         if (Request.QueryString["BikeID"] == null)

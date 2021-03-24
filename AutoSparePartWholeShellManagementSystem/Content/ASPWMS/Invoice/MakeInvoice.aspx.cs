@@ -216,29 +216,26 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
     #region Cancle Button Click Event
     protected void btnCancle_Click(object sender, EventArgs e)
     {
-        InvoiceItemBAL balIvoiceItem = new InvoiceItemBAL();
-        if (balIvoiceItem.Delete(Convert.ToInt32(Session["InvoiceID"].ToString())))
+        if (Request.QueryString["InvoiceID"] == null)
         {
-            string url = "~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?InvoiceID=" + Session["InvoiceID"].ToString();
-            if (Request.QueryString["InvoiceID"] == null)
+            InvoiceBAL balInvoice = new InvoiceBAL();
+            if (balInvoice.Delete(Convert.ToInt32(Session["InvoiceID"].ToString())))
             {
-                InvoiceBAL balInvoice = new InvoiceBAL();
-                if (balInvoice.Delete(Convert.ToInt32(Session["InvoiceID"].ToString())))
-                {
-                    Response.Redirect("~/Content/ASPWMS/Invoice/InvoiceList.aspx");
-                }
+                Response.Redirect("~/Content/ASPWMS/Invoice/InvoiceList.aspx");
             }
             else
             {
-                Response.Redirect(url);
+                lblMessage.Text = balInvoice.Message;
             }
-            Session.Clear();
            
         }
         else
         {
-            lblMessage.Text = balIvoiceItem.Message;
+            string url = "~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?InvoiceID=" + Session["InvoiceID"].ToString();
+            Response.Redirect(url);
+            Session.Clear();
         }
+
     }
     #endregion
 

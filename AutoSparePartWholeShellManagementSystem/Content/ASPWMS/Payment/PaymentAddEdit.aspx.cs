@@ -55,9 +55,71 @@ public partial class Content_ASPWMS_Payment_PaymentAddEdit : System.Web.UI.Page
     #region Save Button click event
     protected void btnSave_Click(object sender, EventArgs e)
     {
-
+        #region Server side validation
+        PaymentENT entPayment = new PaymentENT();
+        if (txtAmount.Text.Trim() == "")
+            lblMessage.Text += "Enter amount";
+        if(ddlPaymentPerson.SelectedIndex  < 1)
+            lblMessage.Text += "Select Person";
+        if (lblMessage.Text.Trim() != "")
+        {
+            lblMessage.CssClass = "text-danger";
+            return;
+        }
+        else
+        {
+            entPayment.Payment_Amount = Convert.ToInt32(txtAmount.Text.Trim());
+            entPayment.Payment_Date = txtDate.Text.Trim();
+            entPayment.Payment_PersonID = Convert.ToInt32(ddlPaymentPerson.SelectedValue);
+            if (rbCredit.Checked)
+                entPayment.Payment_Type = "Credit";
+            if(rbDebit.Checked)
+                entPayment.Payment_Type = "Debit";
+            entPayment.Payment_Description = txtDescription.Text.Trim();
+        }
+        #endregion
+        PaymentBAL balPayment = new PaymentBAL();
+        if(Request.QueryString["PaymentID"] != null)
+        {
+            entPayment.PaymentID = Convert.ToInt32(Request.QueryString["PaymentID"]);
+            if (balPayment.Update(entPayment))
+            {
+                Response.Redirect("~/Content/ASPWMS/Payment/PaymentList.aspx");
+            }
+            else
+            {
+                lblMessage.Text = balPayment.Message;
+                lblMessage.CssClass = "text-danger";
+            }
+        }
+        else
+        {
+            if (balPayment.Insert(entPayment))
+            {
+                lblMessage.Text = "Data enter successfully";
+                lblMessage.CssClass = "alert-success";
+                clearControl();
+            }
+            else
+            {
+                lblMessage.Text = balPayment.Message;
+                lblMessage.CssClass = "text-danger";
+            }
+        }
     }
     #endregion
+
+    #region Clear Control
+    private void clearControl()
+    {
+        txtAmount.Text = null;
+        txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+        txtDescription.Text = null;
+        ddlPaymentPerson.SelectedIndex = 0;
+    }
+    #endregion
+
+    
 
     #region Cancle Button click event
     protected void btnCancle_Click(object sender, EventArgs e)

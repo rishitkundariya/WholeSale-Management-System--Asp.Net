@@ -27,7 +27,7 @@
         
         <div class="row">
             <div class="col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
-               <asp:GridView ID="gvBikeList" runat="server" CssClass="table table-bordered table-hover table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBikeList_RowCommand" >  
+               <asp:GridView ID="gvBikeList" runat="server" CssClass="table table-bordered table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBikeList_RowCommand" >  
                    <columns>
                        <asp:TemplateField HeaderText="Sr No">
                         <ItemTemplate>
@@ -41,9 +41,12 @@
                        <asp:BoundField DataField="BikeModelYear" HeaderText="Model Year" />
                        <asp:TemplateField>
                            <ItemTemplate >
-                                <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn rounded-pill btn-danger btn-sm margin-right-5 margin-bottom-5 "  CommandName="DeleteItem" CommandArgument='<%#Eval("BikeID")%>'  />
-                                 <asp:Button ID="hypEdit" runat="server" CssClass="btn btn-dark btn-sm rounded-pill margin-bottom-5 " CommandName="Edit"
-                                     CommandArgument='<% #"~/Content/ASPWMS/Bike/BikeAddEdit.aspx?BikeID=" + Eval("BikeID").ToString()%>' Text="Edit" />
+                                <asp:ImageButton ID="btnDelete" runat="server" CssClass="mr-10 margin-bottom-5 hrightwidth btntras"
+                                    ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                    CommandName="DeleteItem" CommandArgument='<%#Eval("BikeID")%>'  />
+                                 <asp:ImageButton ID="hypEdit" runat="server" CssClass="margin-bottom-5 hrightwidth btntras " CommandName="Edit"
+                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
+                                     CommandArgument='<% #"~/Content/ASPWMS/Bike/BikeAddEdit.aspx?BikeID=" + Eval("BikeID").ToString()%>'  />
                            </ItemTemplate>
                        </asp:TemplateField>
                    </columns>

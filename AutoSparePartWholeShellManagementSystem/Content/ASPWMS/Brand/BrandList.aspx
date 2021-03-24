@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
-               <asp:GridView ID="gvBrandList" runat="server" CssClass="table  table-bordered table-hover table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBrandList_RowCommand" >  
+               <asp:GridView ID="gvBrandList" runat="server" CssClass="table  table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBrandList_RowCommand" >  
                    <columns>
                        <asp:TemplateField HeaderText="Sr No">
                         <ItemTemplate>
@@ -39,8 +39,13 @@
                     <asp:BoundField DataField="BrandSortName" HeaderText="Brand SortName" />
                        <asp:TemplateField>
                            <ItemTemplate >
-                                <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass=" btn rounded-pill btn-danger btn-sm margin-right-5 margin-bottom-5 "  CommandName="DeleteItem" CommandArgument='<%#Eval("BrandID")%>'  />
-                                  <asp:Button ID="btnEdit" runat="server" CssClass=" btn rounded-pill btn-dark btn-sm margin-right-5 margin-bottom-5" CommandName="Edit" CommandArgument='<%#"~/Content/ASPWMS/Brand/BrandAddEdit.aspx?BrandID=" + Eval("BrandID").ToString() %>' Text="Edit" />
+                                <asp:ImageButton ID="btnDelete" runat="server" 
+                                    ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                    CssClass="mr-10 margin-bottom-5 hrightwidth btntras"  CommandName="DeleteItem" CommandArgument='<%#Eval("BrandID")%>'  />
+                                  <asp:ImageButton ID="btnEdit" runat="server" 
+                                      ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
+                                      CssClass=" margin-bottom-5 hrightwidth btntras" 
+                                      CommandName="Edit" CommandArgument='<%#"~/Content/ASPWMS/Brand/BrandAddEdit.aspx?BrandID=" + Eval("BrandID").ToString() %>' Text="Edit" />
                            </ItemTemplate>
                        </asp:TemplateField>
                       

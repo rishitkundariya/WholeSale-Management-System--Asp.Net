@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span>  City Name &nbsp;:-</b>
+            <div class=" col-md-3 text-right" style="float:right">
+               <b><span class="text-danger">*</span>  City Name &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -29,8 +29,8 @@
                  </div>
         </div>
          <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b>&nbsp;&nbsp; Pincode &nbsp;:-</b>
+            <div class=" col-md-3 text-right" style="float:right">
+               <b>&nbsp;&nbsp; Pincode &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -44,8 +44,8 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-4" style="padding-left:6rem; margin-bottom:4rem">
-                <asp:Button ID="btnSave" runat="server" Text="Save"  CssClass="btn btn-primary margin-10" ValidationGroup="Save" OnClick="btnSave_Click" />
-               <asp:Button ID="btnCancle" runat="server" Text="Cancel"  CssClass="btn btn-danger margin-10" OnClick="btnCancle_Click" />
+                <asp:Button ID="btnSave" runat="server" Text="Save"  CssClass="btn btn-primary margin-10 btntras" ValidationGroup="Save" OnClick="btnSave_Click" />
+               <asp:Button ID="btnCancle" runat="server" Text="Cancel"  CssClass="btn btn-danger margin-10 btntras" OnClick="btnCancle_Click" />
 
             </div>
            

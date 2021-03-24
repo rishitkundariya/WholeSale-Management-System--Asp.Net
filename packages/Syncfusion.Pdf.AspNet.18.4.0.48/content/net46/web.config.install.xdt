@@ -1,0 +1,44 @@
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" >
+	<system.web xdt:Transform="InsertIfMissing">
+    <compilation xdt:Transform="InsertIfMissing">
+     <assemblies xdt:Transform="InsertIfMissing">
+        </assemblies>
+    </compilation>
+    <pages xdt:Transform="InsertIfMissing">
+    <controls xdt:Transform="InsertIfMissing">
+<add assembly="Microsoft.AspNet.Web.Optimization.WebForms" namespace="Microsoft.AspNet.Web.Optimization.WebForms" tagPrefix="webopt" xdt:Transform="InsertIfMissing" xdt:Locator="Match(assembly)" />
+      </controls></pages>
+   <httpHandlers xdt:Transform="InsertIfMissing">
+      <add verb="*" path="captimage.axd" type="Syncfusion.JavaScript.ImageHandler, Syncfusion.EJ, Version=18.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" xdt:Transform="InsertIfMissing" xdt:Locator="Match(type)" />
+    </httpHandlers>
+    <profile defaultProvider="DefaultProfileProvider" xdt:Transform="InsertIfMissing">
+      <providers xdt:Transform="InsertIfMissing">
+      
+</providers>
+    </profile>
+    <membership xdt:Transform="InsertIfMissing" defaultProvider="DefaultMembershipProvider">
+      <providers xdt:Transform="InsertIfMissing">
+      
+</providers>
+    </membership>
+    <roleManager xdt:Transform="InsertIfMissing" defaultProvider="DefaultRoleProvider">
+      <providers xdt:Transform="InsertIfMissing">
+      
+</providers>
+    </roleManager>
+    <!--
+            If you are deploying to a cloud environment that has multiple web server instances,
+            you should change session state mode from "InProc" to "Custom". In addition,
+            change the connection string named "DefaultConnection" to connect to an instance
+            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+      -->
+    
+  </system.web>
+  <system.webServer xdt:Transform="InsertIfMissing">
+     <validation validateIntegratedModeConfiguration="false" xdt:Transform="InsertIfMissing"/>
+    <modules runAllManagedModulesForAllRequests="true" xdt:Transform="InsertIfMissing" />
+  <handlers xdt:Transform="InsertIfMissing" >
+      <add verb="*" path="captimage.axd" name="syncfusion_generatetools" type="Syncfusion.JavaScript.ImageHandler, Syncfusion.EJ, Version=18.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" xdt:Transform="InsertIfMissing" xdt:Locator="Match(type)" />
+    </handlers>
+  </system.webServer>
+</configuration>

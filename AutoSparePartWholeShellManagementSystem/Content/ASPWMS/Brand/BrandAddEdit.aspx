@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span>  Brand Name &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b><span class="text-danger">*</span>  Brand Name &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -29,8 +29,8 @@
                  </div>
         </div>
          <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Brand SortName &nbsp;:-</b>
+            <div class="col-md-3 text-right" >
+               <b><span class="text-danger">*</span> Brand SortName &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -49,9 +49,7 @@
 
             </div>
             
-             <div class>
-
-             </div>
+           
             
         </div>
     </div>

@@ -63,16 +63,16 @@ public partial class Content_ASPWMS_Supplier_SupplierAddEdit : System.Web.UI.Pag
         SupplierENT entSupplier = new SupplierENT();
 
         #region server side value Check and Assign
-        if (txtSupplierName.Text == "")
+        if (txtSupplierName.Text.Trim() == "")
             lblMessage.Text += "Enter Supplier Name";
-        if (txtMobileNumber.Text == "")
+        if (txtMobileNumber.Text.Trim() == "")
             lblMessage.Text += "Enter Mobile Number";
         if (ddlBrandName.SelectedIndex == 0)
             lblMessage.Text += "Select Brand ";
         if (lblMessage.Text == "")
         {
-            entSupplier.SupplierName = txtSupplierName.Text;
-            entSupplier.Number = txtMobileNumber.Text;
+            entSupplier.SupplierName = txtSupplierName.Text.Trim();
+            entSupplier.Number = txtMobileNumber.Text.Trim();
             entSupplier.BrandID =Convert.ToInt32(ddlBrandName.SelectedValue);
             if (ddlCity.SelectedIndex > 0)
                 entSupplier.CityID = Convert.ToInt32(ddlCity.SelectedValue);

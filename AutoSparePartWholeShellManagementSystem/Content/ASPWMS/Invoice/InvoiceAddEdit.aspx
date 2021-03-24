@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <div class="row" style="margin: 20px;">
+        <div class="row" style="margin: 10px;">
 
-            <div class="offset-md-3 col-md-2" style="float: right; vertical-align: middle;">
-               <h5><b> <span class="text-danger">*</span>Shop Name &nbsp;:-</b></h5>
+            <div class="offset-md-3 col-md-2 text-right" style="float: right; vertical-align: middle;">
+               <b> <span class="text-danger">*</span>Shop Name &nbsp;:</b>
             </div>
 
             <div class=" col-md-3" style="margin-bottom: 20px;">
@@ -37,17 +37,17 @@
 
         </div>
 
-        <div class="row" style="margin: 20px;">
-            <div class="col-md-2" style="float: right">
-               <b><span class="text-danger">*</span>Date:-</b>
+        <div class="row" style="margin: 5px;">
+            <div class="col-md-2 text-right" >
+               <b><span class="text-danger">*</span>Date:</b>
             </div>
 
             <div class=" col-md-3 col-from-lable" style="margin-bottom: 20px;">
                 <asp:TextBox runat="server" ID="txtDate" TextMode="Date" CssClass="form-control font-weight-bold"></asp:TextBox>
             </div>
 
-            <div class="offset-md-1 col-md-2">
-                <b>Retailer Name &nbsp;:-</b>
+            <div class="offset-md-1 col-md-2 text-right">
+                <b>Retailer Name &nbsp;:</b>
             </div>
 
             <div class="col-md-3 col-from-lable">
@@ -56,18 +56,18 @@
 
         </div>
 
-        <div class="row" style="margin: 18px;">
+        <div class="row" style="margin: 5px;">
 
-            <div class="col-md-2" style="float: right">
-                <b>Transport Name:-</b>
+            <div class="col-md-2 text-right" >
+                <b>Transport Name:</b>
             </div>
 
             <div class=" col-md-3 col-from-lable" style="margin-bottom: 20px;">
                 <asp:Label ID="lblTransportName" runat="server" Text=""  CssClass="form-control font-weight-bold"></asp:Label>
             </div>
 
-            <div class="offset-md-1 col-md-2 ">
-                <b>City Name &nbsp;:-</b>
+            <div class="offset-md-1 col-md-2 text-right">
+                <b>City Name &nbsp;:</b>
             </div>
             <div class="col-md-3 col-from-lable">
                 <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-control" ></asp:DropDownList>

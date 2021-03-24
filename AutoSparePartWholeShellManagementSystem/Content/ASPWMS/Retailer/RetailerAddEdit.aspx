@@ -17,8 +17,8 @@
         </div>
     
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Retailer Name &nbsp;:-</b>
+            <div class=" col-md-3 text-right" >
+               <b><span class="text-danger">*</span>Retailer Name &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -31,8 +31,8 @@
         </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Mobile Number &nbsp;:-</b>
+            <div class="col-md-3 text-right">
+               <b><span class="text-danger">*</span>Mobile No :</b>
             </div>
             
             <div class="col-md-4">
@@ -47,23 +47,23 @@
          </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Shop Name &nbsp;:-</b>
+            <div class=" col-md-3 text-right" >
+               <b><span class="text-danger">*</span>Shop Name &nbsp;:</b>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-4" style="float:right">
                 <asp:TextBox ID="txtShopName" runat="server" CssClass="form-control"  placeholder="Enter Shop Name"></asp:TextBox>
                
             </div>
-            <div class="col-md-4">  
+            <div class="col-md-4" style="float:right">  
                 <asp:RequiredFieldValidator ID="rfvShopName" runat="server" ErrorMessage="Enter Shop Name"  CssClass="text-danger" Display="Dynamic" ControlToValidate="txtShopName" ValidationGroup="Save"  SetFocusOnError="True"></asp:RequiredFieldValidator>
                
             </div>
          </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Shop Address &nbsp;:-</b>
+            <div class=" col-md-3 text-right" >
+               <b><span class="text-danger">*</span>Shop Address &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -77,8 +77,8 @@
          </div>
  
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> City &nbsp;:-</b>
+            <div class=" col-md-3 text-right" >
+               <b><span class="text-danger">*</span>City &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -90,9 +90,9 @@
             </div>
          </div>
   
-       <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b><span class="text-danger">*</span> Transport Name &nbsp;:-</b>
+       <div class="row" style="margin:15px;">
+            <div class=" col-md-3 text-right" >
+               <b><span class="text-danger">*</span>Transport Name:</b>
             </div>
             
             <div class="col-md-4">
@@ -106,8 +106,8 @@
          </div>
 
        <div class="row" style="margin:20px;">
-            <div class="col-md-3" style="float:right">
-               <b>&nbsp;&nbsp; Email &nbsp;:-</b>
+            <div class=" col-md-3 text-right" >
+               <b>&nbsp;&nbsp;Email &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -123,8 +123,8 @@ Formate" CssClass="text-danger" Display="Dynamic" ControlToValidate="txtEmail" V
        <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-4" style="padding-left:6rem; margin-bottom:4rem">
-                <asp:Button ID="btnSave" runat="server" Text="Save"  CssClass="btn btn-primary margin-10" ValidationGroup="Save" OnClick="btnSave_Click" />
-               <asp:Button ID="btnCancle" runat="server" Text="Cancel"  CssClass="btn btn-danger margin-10" OnClick="btnCancle_Click" />
+                <asp:Button ID="btnSave" runat="server" Text="Save"  CssClass="btntras btn btn-primary margin-10" ValidationGroup="Save" OnClick="btnSave_Click" />
+               <asp:Button ID="btnCancle" runat="server" Text="Cancel"  CssClass="btntras btn btn-danger margin-10" OnClick="btnCancle_Click" />
 
             </div>
             

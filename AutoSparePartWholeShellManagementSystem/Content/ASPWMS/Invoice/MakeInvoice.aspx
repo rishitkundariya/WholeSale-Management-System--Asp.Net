@@ -35,7 +35,7 @@
                     InitialValue="-1"></asp:RequiredFieldValidator>
             </div>
 
-            <div class=" col-md-1">
+            <div class=" col-md-2">
                 <b><span class="text-danger">*</span>Quntatity</b>
             </div>
             <div class="col-md-2">
@@ -47,11 +47,11 @@
                     ControlToValidate="txtQuantity"
                     ValidationGroup="Save"></asp:RequiredFieldValidator>
             </div>
-            <div class=" col-md-1 text-center">
-                <b>Price :- </b>
+            <div class=" col-md-1 ">
+                <b>Price : </b>
             </div>
-            <div class="col-md-2">
-                <asp:Label ID="lblPrice" runat="server" Text="" CssClass="form-control text-center col-from-label"></asp:Label>
+            <div class="col-md-1">
+                <asp:Label ID="lblPrice" runat="server" Text="" CssClass=" text-center col-from-label"></asp:Label>
 
             </div>
         </div>
@@ -88,13 +88,14 @@
                     <asp:BoundField DataField="Total" HeaderText="Total" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="btnDelete" runat="server"
-                                Text="Delete"
-                                CssClass="btn rounded-pill btn-danger btn-sm  margin-right-5 margin-bottom-5"
+                            <asp:ImageButton ID="btnDelete" runat="server"
+                                ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                 CssClass="mr-10 margin-bottom-5 btntras hrightwidth"
                                 CommandName="DeleteItem" CommandArgument='<%# Container.DataItemIndex %>' />
 
-                            <asp:Button ID="btnEdit" runat="server"
-                                CssClass="btn btn-dark btn-sm rounded-pill margin-right-5 margin-bottom-5" Text="Edit"
+                            <asp:ImageButton ID="btnEdit" runat="server"
+                                ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
+                               CssClass="margin-bottom-5 btntras hrightwidth" 
                                 CommandName="EditItem" CommandArgument='<%# Container.DataItemIndex %>' />
                         </ItemTemplate>
                     </asp:TemplateField>

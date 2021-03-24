@@ -25,14 +25,14 @@
         <div class="row">
 
             <div class="col-md-12 margin-bottom-5 text-right mb-3">
-                <asp:Button ID="btnAdd" runat="server" Text="Add Invoice" CssClass="btn btn-primary" Style="float: right" OnClick="btnAdd_Click" />
+                <asp:Button ID="btnAdd" runat="server" Text="Add Invoice" CssClass="btn btn-primary " Style="float: right" OnClick="btnAdd_Click" />
             </div>
         </div>
 
         <div class="row">
 
             <div class="col-md-12 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
-                <asp:GridView ID="gvInvoice" runat="server" CssClass="table table-bordered table-hover table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvInvoice_RowCommand">
+                <asp:GridView ID="gvInvoice" runat="server" CssClass="table table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvInvoice_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="Sr No">
                             <ItemTemplate>
@@ -43,14 +43,24 @@
                         <asp:BoundField DataField="ShopName" HeaderText="Shop Name" />
                         <asp:BoundField DataField="Date" HeaderText="Date" />
                         <asp:BoundField DataField="Amount" HeaderText="Amount" />
+                         <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="btnPrint" runat="server"
+                                   ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/print.png"
+                                    CssClass="mr-10 margin-bottom-5 hrightwidth btntras text-center"
+                                    CommandName="PrintInvoice" CommandArgument='<%#"~/Content/ASPWMS/Invoice/PrintInvoice.aspx?InvoiceID=" + Eval("InvoiceID").ToString() %>' />
+                              
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button ID="btnDelete" runat="server"
-                                    Text="Delete"
-                                    CssClass="btn rounded-pill btn-danger btn-sm  margin-right-5 margin-bottom-5"
+                                <asp:ImageButton ID="btnDelete" runat="server"
+                                   ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
+                                    CssClass="mr-10 margin-bottom-5 hrightwidth btntras"
                                     CommandName="DeleteItem" CommandArgument='<%#Eval("InvoiceID")%>' />
-                                <asp:Button ID="btnEdit" runat="server"
-                                    CssClass="btn btn-dark btn-sm rounded-pill margin-right-5 margin-bottom-5" Text="Edit"
+                                <asp:ImageButton ID="btnEdit" runat="server"
+                                    ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
+                                    CssClass="mr-10 margin-bottom-5 hrightwidth btntras" 
                                     CommandName="EditItem" CommandArgument='<%#"~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?InvoiceID=" + Eval("InvoiceID").ToString() %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

@@ -55,6 +55,10 @@ public partial class Content_ASPWMS_Invoice_InvoiceList : System.Web.UI.Page
         {
             Response.Redirect(e.CommandArgument.ToString());
         }
+        if(e.CommandName == "PrintInvoice")
+        {
+            Response.Redirect(e.CommandArgument.ToString());
+        }
 
     }
     #endregion
