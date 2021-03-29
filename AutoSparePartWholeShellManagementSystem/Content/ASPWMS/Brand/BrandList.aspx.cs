@@ -55,7 +55,8 @@ public partial class Content_ASPWMS_Brand_BrandList : System.Web.UI.Page
         }
         if (e.CommandName == "Edit")
         {
-            Response.Redirect(e.CommandArgument.ToString());
+            String url = "~/Content/ASPWMS/Brand/BrandAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString(); ;
+            Response.Redirect(url);
         }
     }
     #endregion

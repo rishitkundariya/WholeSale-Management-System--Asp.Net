@@ -149,5 +149,22 @@ namespace ASPWMS.BAL
             }
         }
         #endregion
+
+        #region Invoice Count
+        public Int32 InvoiceCount()
+        {
+            InvoiceDAL dalInvoice = new InvoiceDAL();
+            int count = dalInvoice.InvoiceCount();
+            if (count == -1)
+            {
+                Message = dalInvoice.Message;
+                return -1;
+            }
+            else
+            {
+                return count;
+            }
+        }
+        #endregion
     }
 }

@@ -158,10 +158,28 @@ namespace ASPWMS.BAL
             }
             #endregion
         }
-        
+
         #endregion
 
         #endregion
+
+        #region Product Count
+        public Int32 ProductCount()
+        {
+            ProductDAL dalProduct = new ProductDAL();
+            int count = dalProduct.ProductCount();
+            if (count == -1)
+            {
+                Message = dalProduct.Message;
+                return -1;
+            }
+            else
+            {
+                return count;
+            }
+        }
+        #endregion
+
     }
 }
 

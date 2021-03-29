@@ -291,5 +291,38 @@ namespace ASPWMS.DAL
             }
         }
         #endregion
+
+        #region Invoice Count
+        public Int32 InvoiceCount()
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandText = "PR_InvoiceCount";
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        return  (int) objCmd.ExecuteScalar();
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                    return -1;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+
+                }
+            }
+        }
+        #endregion
     }
 }

@@ -64,18 +64,20 @@
         .fontst {
             font-family: sans-serif;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .fontsi {
-            font-size: 0.8rem;
+            font-size: 1.3rem;
             font-family: sans-serif;
             font-weight: 700;
+            line-height:2rem;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row" id="invoice">
                 <div class="col-md-12">
                     <div class="row" style="margin-bottom: 1rem;">
@@ -119,20 +121,20 @@
                     </div>
 
 
-                    <div class="row fontst borderblr bordertlr">
-                        <div class="col-md-12 table  ml10 mr10" style="padding-right: 1rem; margin-right: 1rem; float: left">
-                            <asp:GridView ID="gvInvoiceItemList" runat="server" GridLines="None"
+                    <div class="row fontst">
+                        <div class="col-md-12 table table-responsive" style="padding:2rem;width:95%" >
+                            <asp:GridView ID="gvInvoiceItemList" runat="server" GridLines="none"
                                 AutoGenerateColumns="False" OnSelectedIndexChanged="gvInvoiceItemList_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:TemplateField HeaderText="Sr No" ItemStyle-Width="7%">
+                                    <asp:TemplateField HeaderText="Sr." ItemStyle-Width="7%">
                                         <ItemTemplate>
                                             <%# Container.DataItemIndex + 1 %>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="Product_Name" HeaderText="Product Name" ItemStyle-Width="56.5%" />
-                                    <asp:BoundField DataField="Quantity" HeaderText="Qty" ItemStyle-Width="8%" />
-                                    <asp:BoundField DataField="Price" HeaderText="Price" ItemStyle-Width="13%" />
-                                    <asp:BoundField DataField="Total" HeaderText="Total" ItemStyle-Width="25%" />
+                                    <asp:BoundField DataField="Product_Name" HeaderText="Product Name" ItemStyle-Width="65%" />
+                                    <asp:BoundField DataField="Quantity" HeaderText="Qty" ItemStyle-Width="10%" />
+                                    <asp:BoundField DataField="Price" HeaderText="Price" ItemStyle-Width="14%" />
+                                    <asp:BoundField DataField="Total" HeaderText="Total" ItemStyle-Width="20%" />
                                 </Columns>
 
                             </asp:GridView>
@@ -150,7 +152,7 @@
                             <b>Grand Total :</b>
                         </div>
                         <div class="col-md-3 fontsi">
-                            <asp:Label ID="lblGrandTotal" runat="server"></asp:Label>
+                            ₹ <asp:Label ID="lblGrandTotal" runat="server"></asp:Label> 
                         </div>
                     </div>
 
@@ -161,7 +163,8 @@
     </form>
     <script>
         window.onload = function () {
-            const invoice = this.document.getElementById("invoice");
+          window.print();
+           <%-- const invoice = this.document.getElementById("invoice");
             console.log(invoice);
             console.log(window);
             var name = document.getElementById('<%= lblShopName.ClientID%>').innerHTML;
@@ -172,8 +175,8 @@
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-            html2pdf().from(invoice).set(opt).save();
-            setTimeout("location.href = 'InvoiceList.aspx';", 100);
+            html2pdf().from(invoice).set(opt).save();--%>
+            setTimeout("location.href = 'InvoiceList.aspx';", 00);
 
         }
 

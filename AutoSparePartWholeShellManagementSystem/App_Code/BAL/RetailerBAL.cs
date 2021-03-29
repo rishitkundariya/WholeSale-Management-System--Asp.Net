@@ -152,5 +152,22 @@ namespace ASPWMS.BAL
         #endregion
 
         #endregion
+
+        #region Reatailer Count
+        public Int32 ReatailerCount()
+        {
+            RetailerDAL dalRetailer = new RetailerDAL();
+            int count = dalRetailer.ReatailerCount();
+            if (count == -1)
+            {
+                Message = dalRetailer.Message;
+                return -1;
+            }
+            else
+            {
+                return count;
+            }
+        }
+        #endregion
     }
 }

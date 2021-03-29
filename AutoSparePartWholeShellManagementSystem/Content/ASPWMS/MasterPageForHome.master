@@ -99,7 +99,7 @@
                     <ul>
 
                         <li>
-                            <asp:HyperLink ID="hplHome" runat="server" NavigateUrl="~/Content/ASPWMS/Home.aspx">Home</asp:HyperLink></li>
+                            <asp:HyperLink ID="hplHome" runat="server" NavigateUrl="~/Content/ASPWMS/Home.aspx"><i class="fas fa-home" ></i></asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="hypProduct" runat="server" NavigateUrl="~/Content/ASPWMS/Product/ProductList.aspx">Product</asp:HyperLink>
                         </li>
@@ -195,7 +195,7 @@
 
         <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/vendor/venobox/venobox.min.js")%>"></script>
 
-
+       <script src="https://kit.fontawesome.com/91e203ee36.js" crossorigin="anonymous"></script>
         <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/vendor/owl.carousel/owl.carousel.min.js")%>"></script>
         <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/vendor/isotope-layout/isotope.pkgd.min.js")%>"></script>
         <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/vendor/aos/aos.js")%>"></script>

@@ -256,5 +256,44 @@ namespace ASPWMS.DAL
 
         #endregion
 
+        #region NetBalance
+        public Int32 NetBalance()
+        {
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandText = "PR_PaymentTotal";
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader ObjSdr=objCmd.ExecuteReader())
+                        {
+                            Int32 Sum = 0;
+                            while (ObjSdr.Read())
+                            {
+                                Sum = Sum + Convert.ToInt32(ObjSdr["Total"].ToString());
+                            }
+                            return Sum;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                    return -99999;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+
+                }
+            }
+        }
+        #endregion
     }
 }

@@ -132,9 +132,25 @@ namespace ASPWMS.BAL
 
         #endregion
 
-      
+
 
         #endregion
 
+        #region Net Balance
+        public Int32 NetBalance()
+        {
+            PaymentDAL dalPayment = new PaymentDAL();
+            int Nettotal = dalPayment.NetBalance();
+            if (Nettotal != -99999)
+            {
+                return Nettotal;
+            }
+            else
+            {
+                Message = dalPayment.Message;
+                return -99999;
+            }
+        }
+        #endregion
     }
 }

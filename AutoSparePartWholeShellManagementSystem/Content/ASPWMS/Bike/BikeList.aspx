@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-9" style="float:right">
+            <div class="col-md-9" style="float:right" >
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" ></asp:Label>
             </div>
             <div class="col-md-2 margin-10" style="float:right" >
@@ -29,7 +29,7 @@
             <div class="col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
                <asp:GridView ID="gvBikeList" runat="server" CssClass="table table-bordered table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBikeList_RowCommand" >  
                    <columns>
-                       <asp:TemplateField HeaderText="Sr No">
+                       <asp:TemplateField HeaderText="Sr.">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
@@ -46,7 +46,7 @@
                                     CommandName="DeleteItem" CommandArgument='<%#Eval("BikeID")%>'  />
                                  <asp:ImageButton ID="hypEdit" runat="server" CssClass="margin-bottom-5 hrightwidth btntras " CommandName="Edit"
                                      ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
-                                     CommandArgument='<% #"~/Content/ASPWMS/Bike/BikeAddEdit.aspx?BikeID=" + Eval("BikeID").ToString()%>'  />
+                                     CommandArgument='<%#Eval("BikeID")%>'  />
                            </ItemTemplate>
                        </asp:TemplateField>
                    </columns>

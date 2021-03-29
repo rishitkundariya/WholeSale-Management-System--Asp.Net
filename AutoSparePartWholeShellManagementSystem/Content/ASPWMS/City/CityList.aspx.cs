@@ -8,6 +8,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using ASPWMS.BAL;
+using System.Text;
+using System.Security.Cryptography;
+using System.IO;
 
 public partial class Content_ASPWMS_City_City : System.Web.UI.Page
 {
@@ -47,7 +50,7 @@ public partial class Content_ASPWMS_City_City : System.Web.UI.Page
     }
     #endregion
 
-
+    #region GridView Row commad Event
     protected void gvCity_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "DeleteItem")
@@ -56,10 +59,13 @@ public partial class Content_ASPWMS_City_City : System.Web.UI.Page
         }
         if(e.CommandName== "EditItem")
         {
-            Response.Redirect(e.CommandArgument.ToString().Trim());
+            string value = HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString().Trim()));
+            String url = "~/Content/ASPWMS/City/CityAddEdit.aspx?q=" + value;
+            Response.Redirect(url);
         }
     }
-
+    #endregion
+    
     #region delete item
     protected void DeleteItem(int CityID)
     {

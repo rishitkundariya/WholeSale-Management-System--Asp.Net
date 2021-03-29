@@ -13,16 +13,18 @@ using ASPWMS.ENT;
 
 public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
 {
+   
     protected void Page_Load(object sender, EventArgs e)
     {
+       
         #region Postback Event
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["CityID"] == null)
+            if (Request.QueryString["q"] == null)
                 lblPageHeading.Text = "Add City";
             else
             {
-                FillData(Convert.ToInt32(Request.QueryString["CityID"].ToString()));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblPageHeading.Text = "Edit City";
             }
                
@@ -69,7 +71,7 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
         }
         else
         {
-            entCity.CityID = Convert.ToInt32(Request.QueryString["CityID"].ToString());
+            entCity.CityID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balCity.Update(entCity))
             {
                 Response.Redirect("~/Content/ASPWMS/City/CityList.aspx");

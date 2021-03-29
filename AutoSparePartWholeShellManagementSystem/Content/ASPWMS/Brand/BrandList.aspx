@@ -29,7 +29,7 @@
             <div class="col-md-10 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
                <asp:GridView ID="gvBrandList" runat="server" CssClass="table  table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBrandList_RowCommand" >  
                    <columns>
-                       <asp:TemplateField HeaderText="Sr No">
+                       <asp:TemplateField HeaderText="Sr.">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
@@ -45,7 +45,7 @@
                                   <asp:ImageButton ID="btnEdit" runat="server" 
                                       ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
                                       CssClass=" margin-bottom-5 hrightwidth btntras" 
-                                      CommandName="Edit" CommandArgument='<%#"~/Content/ASPWMS/Brand/BrandAddEdit.aspx?BrandID=" + Eval("BrandID").ToString() %>' Text="Edit" />
+                                      CommandName="Edit" CommandArgument='<%#Eval("BrandID")%>' Text="Edit" />
                            </ItemTemplate>
                        </asp:TemplateField>
                       

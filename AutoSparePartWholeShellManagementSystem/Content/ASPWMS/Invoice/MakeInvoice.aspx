@@ -76,7 +76,7 @@
                 ShowFooter="True" OnRowCommand="gvInvoiceItem_RowCommand"
                 DataKeyNames="ProductID">
                 <Columns>
-                    <asp:TemplateField HeaderText="Sr No">
+                    <asp:TemplateField HeaderText="Sr.">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>

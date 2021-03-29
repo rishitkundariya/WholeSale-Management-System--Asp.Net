@@ -31,10 +31,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-1 col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded ">
+            <div class="col-md-12 table-responsive shadow-lg p-3 mb-5 bg-white rounded ">
                 <asp:gridview id="gvProduct" runat="server" cssclass="table table-bordered table-striped thead-dark" autogeneratecolumns="False" onrowcommand="gvProduct_RowCommand">
                     <Columns>
-                        <asp:TemplateField HeaderText="Sr No">
+                        <asp:TemplateField HeaderText="Sr.">
                          <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                           </ItemTemplate>

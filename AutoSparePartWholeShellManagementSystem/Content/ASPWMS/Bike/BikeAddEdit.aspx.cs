@@ -13,24 +13,25 @@ using ASPWMS.ENT;
 
 public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
 {
+    #region Page Load
     protected void Page_Load(object sender, EventArgs e)
     {
         #region Postback Event
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["BikeID"] == null)
+            if (Request.QueryString["q"] == null)
                 lblMainHeading.Text = "Add Bike Details";
             else
             {
-                FillData(Convert.ToInt32(Request.QueryString["BikeID"].ToString()));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblMainHeading.Text = "Edit Bike Details";
             }
 
         }
         #endregion
     }
+    #endregion
 
-        
     #region fill data in edit mode
     protected void FillData(int BikeID)
     {
@@ -56,8 +57,7 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
         
     }
     #endregion
-
-
+    
     #region Save Button Click Event
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -89,7 +89,7 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
         
 
         #region Save or Update data
-        if (Request.QueryString["BikeID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             if(balBike.Insert(entBike))
             {
@@ -105,7 +105,7 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
         }
         else
         {
-            entBike.BikeID = Convert.ToInt32(Request.QueryString["BikeID"].ToString());
+            entBike.BikeID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balBike.Update(entBike))
             {
                 Response.Redirect("~/Content/ASPWMS/Bike/BikeList.aspx");

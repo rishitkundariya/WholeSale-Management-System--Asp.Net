@@ -34,7 +34,7 @@
             <div class="col-md-12 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
                 <asp:GridView ID="gvInvoice" runat="server" CssClass="table table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvInvoice_RowCommand">
                     <Columns>
-                        <asp:TemplateField HeaderText="Sr No">
+                        <asp:TemplateField HeaderText="Sr.">
                             <ItemTemplate>
                                 <%# Container.DataItemIndex + 1 %>
                             </ItemTemplate>

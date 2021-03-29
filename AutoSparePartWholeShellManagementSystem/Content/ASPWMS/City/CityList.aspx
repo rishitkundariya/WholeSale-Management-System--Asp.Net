@@ -30,7 +30,7 @@
             <div class="col-md-10 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
                <asp:GridView ID="gvCity" runat="server" CssClass="table table-bordered  table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvCity_RowCommand">  
                    <columns>
-                       <asp:TemplateField HeaderText="Sr No">
+                       <asp:TemplateField HeaderText="Sr.">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
@@ -46,7 +46,7 @@
                                     CommandName="DeleteItem" CommandArgument='<%#Eval("CityID")%>' />
                                  <asp:ImageButton ID="btnEdit" runat="server" CssClass="margin-bottom-5 btntras hrightwidth"
                                      ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png" 
-                                    CommandName="EditItem" CommandArgument='<%#"~/Content/ASPWMS/City/CityAddEdit.aspx?CityID=" + Eval("CityID").ToString() %>' />
+                                    CommandName="EditItem" CommandArgument='<%#Eval("CityID")%>' />
                            </ItemTemplate>
                        </asp:TemplateField>
                    </columns>

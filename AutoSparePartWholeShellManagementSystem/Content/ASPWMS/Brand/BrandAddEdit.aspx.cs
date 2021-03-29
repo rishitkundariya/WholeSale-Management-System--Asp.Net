@@ -13,21 +13,22 @@ using ASPWMS.ENT;
 
 public partial class Content_ASPWMS_Brand_BrandAddEdit : System.Web.UI.Page
 {
+    #region page load
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            if(Request.QueryString["BrandID"]!=null)
+            if(Request.QueryString["q"]!=null)
             {
-                FillData(Convert.ToInt32(Request.QueryString["BrandID"]));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblPageHeading.Text = "Edit Brand";
             }
             else
                 lblPageHeading.Text = "Add Brand";
         }
     }
-
-
+    #endregion
+    
     #region Fill Data in edit Mode
     protected void FillData(int BrandID)
     {
@@ -72,7 +73,7 @@ public partial class Content_ASPWMS_Brand_BrandAddEdit : System.Web.UI.Page
         #endregion
 
         BrandBAL balBrand = new BrandBAL();
-        if (Request.QueryString["BrandID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             if (balBrand.Insert(entBrand))
             {
@@ -88,7 +89,7 @@ public partial class Content_ASPWMS_Brand_BrandAddEdit : System.Web.UI.Page
         }
         else
         {
-            entBrand.BrandID =Convert.ToInt32(Request.QueryString["BrandID"].ToString());
+            entBrand.BrandID =Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balBrand.Update(entBrand))
             {
                 Response.Redirect("~/Content/ASPWMS/Brand/BrandList.aspx");

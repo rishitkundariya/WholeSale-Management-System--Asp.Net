@@ -11,6 +11,7 @@ using ASPWMS.BAL;
 
 public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
 {
+    #region page load
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -18,6 +19,7 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
             FillGridView();
         }
     }
+    #endregion
 
     #region Fill Gridview Method
     public void FillGridView()
@@ -54,11 +56,11 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
         {
             if (String.Equals(row.Cells[2].Text.ToString(), "Debit"))
             {
-                row.BackColor = Color.FromName("#ffdddd");
+                row.ForeColor = Color.FromName("#D2042D");
             }
             else
             {
-                row.BackColor = Color.FromName("#bbffb9 ");
+                row.ForeColor = Color.FromName("#228b22 ");
             }
         }
     }
@@ -89,6 +91,7 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
     }
     #endregion
 
+    #region Gridview row command Event
     protected void gvPayment_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "DeleteItem")
@@ -100,4 +103,5 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
             Response.Redirect(e.CommandArgument.ToString());
         }
     }
+    #endregion
 }

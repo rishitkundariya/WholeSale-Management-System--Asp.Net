@@ -11,11 +11,13 @@ using ASPWMS.BAL;
 
 public partial class Content_ASPWMS_Bike_BikeList : System.Web.UI.Page
 {
+    #region Page load 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
             FillGridView();
     }
+    #endregion
 
     #region  Fill Grid View Of Bike
     protected void FillGridView()
@@ -56,7 +58,8 @@ public partial class Content_ASPWMS_Bike_BikeList : System.Web.UI.Page
         {
             FillGridView();
             lblMessage.Text = "Data Deleted Successfully";
-            lblMessage.CssClass = "text-success";
+            lblMessage.CssClass = "alert-success";
+            
         }
         else
         {
@@ -75,7 +78,9 @@ public partial class Content_ASPWMS_Bike_BikeList : System.Web.UI.Page
         }
         if(e.CommandName == "Edit")
         {
-            Response.Redirect(e.CommandArgument.ToString());
+           
+            String url = "~/Content/ASPWMS/Bike/BikeAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString();
+            Response.Redirect(url);
         }
     }
     #endregion
