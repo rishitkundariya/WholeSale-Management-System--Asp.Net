@@ -13,7 +13,7 @@
 
 # Documentation
 <h2>Login Page </h2><ul>
-<li> There is two way of login in this you login as<b> Userbor Admin</b>.</li></ul>
+<li> There is two way of login in this you login as<b> User or Admin</b>.</li></ul>
 <img src="https://github.com/RishitKundariya/WholeSaleManagementSystem/blob/main/Image/login.png" class="img-fluid">
        <h2> Forget Password </h2>
        <ul>
