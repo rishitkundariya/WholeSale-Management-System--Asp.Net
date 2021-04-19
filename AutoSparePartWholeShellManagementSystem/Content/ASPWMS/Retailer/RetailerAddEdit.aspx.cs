@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,14 +14,18 @@ using ASPWMS.ENT;
 
 public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Page
 {
+    #region Page load
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             FillDropDown();
-            if (Request.QueryString["RetailerID"] != null)
+            if (Request.QueryString["q"] != null)
             {
-                FillData(Convert.ToInt32(Request.QueryString["RetailerID"].ToString()));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblPageHeading.Text = "Edit Retailer";
             }
             else
@@ -30,6 +35,7 @@ public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Pag
         }
 
     }
+    #endregion
 
     #region Fill Data 
     protected void FillData(int RetailerID)
@@ -46,7 +52,7 @@ public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Pag
             txtMobileNumber.Text = entRetailer.MobileNumber.ToString();
             txtTransport.Text = entRetailer.TransportName.ToString();
             ddlCity.SelectedValue = entRetailer.CityID.ToString();
-            if(entRetailer.Email!=null)
+            if(entRetailer.Email!="")
                 txtEmail.Text = entRetailer.Email.ToString();
 
         }
@@ -96,8 +102,8 @@ public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Pag
             entRetailer.MobileNumber = txtMobileNumber.Text.Trim();
             entRetailer.TransportName = txtTransport.Text.Trim();
             entRetailer.CityID = Convert.ToInt32(ddlCity.SelectedValue);
-            if (Request.QueryString["RetailerID"] != null)
-                entRetailer.RetailerID = Convert.ToInt32(Request.QueryString["RetailerID"]);
+            if (Request.QueryString["q"] != null)
+                entRetailer.RetailerID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (txtEmail.Text.Trim() != "")
             {
                 entRetailer.Email = txtEmail.Text.Trim();
@@ -110,12 +116,13 @@ public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Pag
 
         #endregion
       
-        if (Request.QueryString["RetailerID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             if (balRetailer.Insert(entRetailer))
             {
                 lblMessage.Text = "Data Entered Successfully";
                 lblMessage.CssClass = "alert-success";
+                Email.sendEmailOfRegiatration(entRetailer);
                 ClearControl();
 
             }
@@ -140,7 +147,7 @@ public partial class Content_ASPWMS_Retailer_RetailerAddEdit : System.Web.UI.Pag
 
     }
     #endregion
-
+    
     #region  cancel button click Event
     protected void btnCancle_Click(object sender, EventArgs e)
     {

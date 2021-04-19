@@ -9,14 +9,13 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
     Payment List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+   Payment List
+</asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
      <div class="container">
-         <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Payment List</h2>
-                <hr />
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-12"  >
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" ></asp:Label>
@@ -51,7 +50,7 @@
                                     CommandName="DeleteItem" CommandArgument='<%#Eval("PaymentID")%>'  />
                                  <asp:ImageButton ID="btnEdit" runat="server" CssClass="btntras hrightwidth  margin-bottom-5"
                                       ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
-                                     CommandName="Edit" CommandArgument='<%#"~/Content/ASPWMS/Payment/PaymentAddEdit.aspx?PaymentID=" + Eval("PaymentID").ToString() %>' Text="Edit" />
+                                     CommandName="Edit" CommandArgument='<%#Eval("PaymentID")%>' Text="Edit" />
                            </ItemTemplate>
                        </asp:TemplateField>
                    </columns>

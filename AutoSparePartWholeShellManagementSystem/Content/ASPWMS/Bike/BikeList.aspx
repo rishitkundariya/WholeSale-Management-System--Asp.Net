@@ -8,25 +8,26 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
     Bike List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" Runat="Server">
+    Bike List
+</asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
     <div class="container">
-          <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Bike List</h2>
-                <hr />
-            </div>
-        </div>
+         
         <div class="row">
-            <div class="col-md-9" style="float:right" >
+            <div class="col-md-12" style="float:right" >
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" ></asp:Label>
             </div>
-            <div class="col-md-2 margin-10" style="float:right" >
+            </div>
+        <div class="row">
+            <div class="col-md-12 margin-10" style="float:right" >
                 <asp:Button ID="btnAdd" runat="server" Text="Add Bike" CssClass="btn btn-primary " OnClick="btnAdd_Bike" style="float:right"/>
             </div>
         </div>
         
         <div class="row">
-            <div class="col-md-11 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
+            <div class="col-md-12 table-responsive shadow-lg p-3 mb-5 bg-white rounded float-right">
                <asp:GridView ID="gvBikeList" runat="server" CssClass="table table-bordered table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvBikeList_RowCommand" >  
                    <columns>
                        <asp:TemplateField HeaderText="Sr.">

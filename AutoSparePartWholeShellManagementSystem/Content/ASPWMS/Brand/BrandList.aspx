@@ -8,14 +8,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
      Brand List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+   Brand List
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
     <div class="container">
-         <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Brand List</h2>
-                <hr />
-            </div>
-        </div>
+         
         <div class="row">
             <div class="col-md-9" style="float:right">
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" ></asp:Label>

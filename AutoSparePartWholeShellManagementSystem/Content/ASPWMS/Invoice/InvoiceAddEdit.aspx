@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" runat="Server">
-    <asp:label runat="server" ID="lblMainHeading" >Make Invoice</asp:label>
+   Invioce
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" runat="Server">
     Invoice | Make Edit
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+   <asp:label runat="server" ID="lblMainHeading" >Make Invoice</asp:label>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container-fluid">
@@ -23,7 +26,7 @@
         <div class="row" style="margin: 10px;">
 
             <div class="offset-md-3 col-md-2 text-right" style="float: right; vertical-align: middle;">
-               <b> <span class="text-danger">*</span>Shop Name &nbsp;:</b>
+               <b> <span class="text-danger">*</span>Shop Name:</b>
             </div>
 
             <div class=" col-md-3" style="margin-bottom: 20px;">

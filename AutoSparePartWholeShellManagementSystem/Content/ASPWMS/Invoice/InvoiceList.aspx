@@ -8,14 +8,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" runat="Server">
     Invoice List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+   Invoice List
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Invoice List</h2>
-                <hr />
-            </div>
-        </div>
+      
 
         <div class="row">
             <div class="col-md-12">
@@ -61,7 +59,7 @@
                                 <asp:ImageButton ID="btnEdit" runat="server"
                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
                                     CssClass="mr-10 margin-bottom-5 hrightwidth btntras" 
-                                    CommandName="EditItem" CommandArgument='<%#"~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?InvoiceID=" + Eval("InvoiceID").ToString() %>' />
+                                    CommandName="EditItem" CommandArgument='<%#Eval("InvoiceID")%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

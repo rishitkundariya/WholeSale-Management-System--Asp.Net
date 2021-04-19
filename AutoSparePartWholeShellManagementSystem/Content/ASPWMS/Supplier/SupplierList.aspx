@@ -8,14 +8,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" runat="Server">
     Supplier List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+  Supplier List 
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Supplier List</h2>
-                <hr />
-            </div>
-        </div>
+      
         <div class="row">
             <div class="col-md-12">
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" EnableViewState="False"></asp:Label>
@@ -53,7 +51,7 @@
                             <asp:ImageButton ID="btnEdit" runat="server"
                                 CssClass="btntras margin-bottom-5 hrightwidth"
                                 CommandName="Edit" ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/Edit.png"
-                                CommandArgument='<%#"~/Content/ASPWMS/Supplier/SupplierAddEdit.aspx?SupplierID=" + Eval("SupplierID").ToString() %>' />
+                                CommandArgument='<%#Eval("SupplierID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

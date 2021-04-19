@@ -3,41 +3,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" runat="Server">
-    Product
+    Product 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" runat="Server">
     Product List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+    Product List 
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container">
 
-        <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Product List</h2>
-                <hr />
-            </div>
-        </div>
+
 
         <div class="row">
             <div class="col-md-9" style="float: right">
-                <asp:label id="lblMessage" runat="server" text="" cssclass="text-danger"></asp:label>
+                <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger"></asp:Label>
             </div>
-           
+
         </div>
-        <div class="row" >
-            <div class="col-md-12" >
-                <asp:button id="btnAdd" runat="server" text="Add Product" cssclass="btn btn-primary btntras" style="margin-bottom:10px;float:right" onclick="btnAdd_Click" />
-            
+        <div class="row">
+            <div class="col-md-12">
+                <asp:Button ID="btnAdd" runat="server" Text="Add Product" CssClass="btn btn-primary btntras" Style="margin-bottom: 10px; float: right" OnClick="btnAdd_Click" />
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 table-responsive shadow-lg p-3 mb-5 bg-white rounded ">
-                <asp:gridview id="gvProduct" runat="server" cssclass="table table-bordered table-striped thead-dark" autogeneratecolumns="False" onrowcommand="gvProduct_RowCommand">
+                <asp:GridView ID="gvProduct" runat="server" CssClass="table table-bordered table-striped thead-dark" AutoGenerateColumns="False" OnRowCommand="gvProduct_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="Sr.">
-                         <ItemTemplate>
-                            <%# Container.DataItemIndex + 1 %>
-                          </ItemTemplate>
+                            <ItemTemplate>
+                                <%# Container.DataItemIndex + 1 %>
+                            </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="ProductID" HeaderText="ID" Visible="false" />
                         <asp:BoundField DataField="Product_Name" HeaderText="Product Name" />
@@ -46,19 +44,19 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:ImageButton ID="btnDelete" runat="server" Text="Delete" CssClass="hrightwidth mr-10 margin-bottom-5 btntras" 
-                                    CommandName="DeleteItem" 
+                                <asp:ImageButton ID="btnDelete" runat="server" Text="Delete" CssClass="hrightwidth mr-10 margin-bottom-5 btntras"
+                                    CommandName="DeleteItem"
                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/x-button.png"
                                     CommandArgument='<%#Eval("ProductID")%>' />
-                                <asp:ImageButton ID="btnEdit" runat="server" 
-                                    CssClass="margin-bottom-5 btntras hrightwidth" 
-                                    CommandName="Edit" 
-                                     ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
-                                    CommandArgument='<%#"~/Content/ASPWMS/Product/ProductAddEdit.aspx?ProductID=" + Eval("ProductID").ToString() %>' />
+                                <asp:ImageButton ID="btnEdit" runat="server"
+                                    CssClass="margin-bottom-5 btntras hrightwidth"
+                                    CommandName="Edit"
+                                    ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
+                                    CommandArgument='<%#Eval("ProductID") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                </asp:gridview>
+                </asp:GridView>
 
             </div>
         </div>
@@ -66,7 +64,10 @@
     </div>
     <script>
         $(document).ready(function () {
-            $('#<%= gvProduct.ClientID%>').DataTable();
+            $('#<%= gvProduct.ClientID%>').DataTable({
+              
+            });
+
         });
     </script>
 

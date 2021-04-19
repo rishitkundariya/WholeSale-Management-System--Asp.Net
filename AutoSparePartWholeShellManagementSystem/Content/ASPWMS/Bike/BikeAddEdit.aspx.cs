@@ -16,6 +16,9 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
     #region Page Load
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         #region Postback Event
         if (!Page.IsPostBack)
         {

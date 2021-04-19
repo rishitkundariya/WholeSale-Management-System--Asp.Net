@@ -170,11 +170,11 @@ namespace ASPWMS.DAL
 
                         using (SqlDataReader objSDR = objCmd.ExecuteReader())
                         {
-                            DataTable dtBike = new DataTable();
+                            DataTable dt = new DataTable();
                             if (objSDR.HasRows)
                             {
-                                dtBike.Load(objSDR);
-                                return dtBike;
+                                dt.Load(objSDR);
+                                return dt;
                             }
                             else
                                 return null;
@@ -251,6 +251,54 @@ namespace ASPWMS.DAL
                         objConn.Close();
                 }
             }
+        }
+
+        #endregion
+
+        #region Select All BY UserID
+        public DataTable SelectAllByUserID(SqlInt32 UserID)
+        {
+            #region Select all By UserID
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Invoice_SelectALLByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID",UserID);
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            DataTable dt= new DataTable();
+                            if (objSDR.HasRows)
+                            {
+                                dt.Load(objSDR);
+                                return dt;
+                            }
+                            else
+                                return null;
+
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Message = e.Message;
+                    return null;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+
+                }
+            }
+            #endregion
         }
 
         #endregion

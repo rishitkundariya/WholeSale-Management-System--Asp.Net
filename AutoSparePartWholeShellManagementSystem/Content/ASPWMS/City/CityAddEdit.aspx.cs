@@ -16,7 +16,9 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         #region Postback Event
         if (!Page.IsPostBack)
         {

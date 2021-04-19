@@ -10,19 +10,23 @@ using ASPWMS.ENT;
 
 public partial class Content_ASPWMS_Product_ProductAddEdit : System.Web.UI.Page
 {
+    #region Page load
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             CommonFillMethod.FillStateDropDownListBrand(ddlBrandName);
-            if (Request.QueryString["ProductID"] != null)
+            if (Request.QueryString["q"] != null)
             {
                 lblPageHeading.Text = "Edit Product Details";
-                FillData(Convert.ToInt32(Request.QueryString["ProductID"]));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
             }
         }
     }
-
+    #endregion
 
     #region FillData 
     private void FillData(SqlInt32 ProductID)
@@ -72,9 +76,9 @@ public partial class Content_ASPWMS_Product_ProductAddEdit : System.Web.UI.Page
         
         
         #endregion
-        if (Request.QueryString["ProductID"] != null)
+        if (Request.QueryString["q"] != null)
         {
-            entProduct.ProductID= Convert.ToInt32(Request.QueryString["ProductID"]);
+            entProduct.ProductID= Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balProduct.Update(entProduct))
             {
                 Response.Redirect("~/Content/ASPWMS/Product/ProductList.aspx");

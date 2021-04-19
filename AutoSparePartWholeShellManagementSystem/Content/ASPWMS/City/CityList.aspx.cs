@@ -16,6 +16,9 @@ public partial class Content_ASPWMS_City_City : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
          FillGridView(); 
             

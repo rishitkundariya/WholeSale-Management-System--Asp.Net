@@ -12,6 +12,9 @@ public partial class Content_ASPWMS_Product_ProductList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
             FillGridView();
     }
@@ -52,7 +55,8 @@ public partial class Content_ASPWMS_Product_ProductList : System.Web.UI.Page
         }
         if (e.CommandName == "Edit")
         {
-            Response.Redirect(e.CommandArgument.ToString());
+            string url = "~/Content/ASPWMS/Product/ProductAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString();
+            Response.Redirect(url);
         }
     }
 

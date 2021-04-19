@@ -252,7 +252,49 @@ namespace ASPWMS.DAL
 
         #endregion
 
+        #region  Select By UserID
+        public DataTable SelectByUserID(SqlInt32 UserID)
+        {
+            #region Select By UserID
 
+            using (SqlConnection objCon = new SqlConnection(ConnectionString))
+            {
+                if (objCon.State != ConnectionState.Open)
+                    objCon.Open();
+                try
+                {
+                    using (SqlCommand objCmd = objCon.CreateCommand())
+                    {
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Payment_SelectByUserID";
+                        objCmd.Parameters.AddWithValue("@UserID", UserID);
+                        DataTable dt = new DataTable();
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            if (objSDR.HasRows)
+                            {
+                                dt.Load(objSDR);
+                            }
+                        }
+
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                    return null;
+                }
+                finally
+                {
+                    if (objCon.State == ConnectionState.Open)
+                        objCon.Close();
+                }
+            }
+
+            #endregion
+        }
+        #endregion
 
         #endregion
 

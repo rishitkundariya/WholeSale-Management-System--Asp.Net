@@ -3,10 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" Runat="Server">
-    <asp:Label ID="lblPageHeading" runat="server" Text="Add Product"></asp:Label>
+    Product
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
     Product Add | Edit
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" Runat="Server">
+   <asp:Label ID="lblPageHeading" runat="server" Text="Add Product"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
     <div class="container">
@@ -58,7 +61,7 @@
         
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4" style="padding-left: 6rem; margin-bottom: 4rem">
+            <div class="col-md-6" style="padding-left: 6rem; margin-bottom: 4rem">
                 <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-primary margin-10 btntras" ValidationGroup="Save" OnClick="btnSave_Click" />
                 <asp:Button ID="btnCancle" runat="server" Text="Cancel" CssClass="btn btn-danger margin-10 btntras" OnClick="btnCancle_Click" />
 

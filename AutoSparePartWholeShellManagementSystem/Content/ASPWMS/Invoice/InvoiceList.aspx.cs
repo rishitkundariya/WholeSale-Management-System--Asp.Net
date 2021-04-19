@@ -12,6 +12,9 @@ public partial class Content_ASPWMS_Invoice_InvoiceList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             FillGridView();
@@ -53,7 +56,9 @@ public partial class Content_ASPWMS_Invoice_InvoiceList : System.Web.UI.Page
         }
         if (e.CommandName == "EditItem")
         {
-            Response.Redirect(e.CommandArgument.ToString());
+            String url = "~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?q=" +
+                HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString(); ;
+            Response.Redirect(url);
         }
         if(e.CommandName == "PrintInvoice")
         {

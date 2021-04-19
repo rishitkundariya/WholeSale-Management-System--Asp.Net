@@ -12,22 +12,26 @@ public partial class Content_ASPWMS_Invoice_InvoiceAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             CommonFillMethod.FillStateDropDownListRetailer(ddlShopList);
             CommonFillMethod.FillStateDropDownListCity(ddlCity);
             ddlCity.Enabled = false;
-            if (Request.QueryString["InvoiceID"] == null)
+            if (Request.QueryString["q"] == null)
             {
                 txtDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 
             }
             else
             {
-                FillDatainEditMode(Convert.ToInt32(Request.QueryString["InvoiceID"]));
+                FillDatainEditMode(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblMainHeading.Text = "Edit Invoice";
                 btnMakeInvoice.Text = "Save Invoice";
             }
+
         }
        
     }
@@ -90,8 +94,8 @@ public partial class Content_ASPWMS_Invoice_InvoiceAddEdit : System.Web.UI.Page
 
         InvoiceBAL balInvoice = new InvoiceBAL();
 
-        #region Delete Data
-        if (Request.QueryString["InvoiceID"] == null)
+        #region Insert Data
+        if (Request.QueryString["q"] == null)
         {
             if (balInvoice.Insert(entInvoice))
             {
@@ -110,11 +114,11 @@ public partial class Content_ASPWMS_Invoice_InvoiceAddEdit : System.Web.UI.Page
         #region Edit Data
         else
         {
-            entInvoice.InvoiceID = Convert.ToInt32(Request.QueryString["InvoiceID"]);
+            entInvoice.InvoiceID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balInvoice.Update(entInvoice))
             {
                 Session["InvoiceID"] = entInvoice.InvoiceID;
-                string url = "~/Content/ASPWMS/Invoice/MakeInvoice.aspx?InvoiceID="+ entInvoice.InvoiceID.ToString();
+                string url= "~/Content/ASPWMS/Invoice/MakeInvoice.aspx?q="+ HttpUtility.UrlEncode(Cryptography.EncryptQueryString(entInvoice.InvoiceID.ToString())).ToString();
                 Response.Redirect(url);
 
             }

@@ -15,14 +15,17 @@ public partial class Content_ASPWMS_Supplier_SupplierAddEdit : System.Web.UI.Pag
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         #region postback event
         if (!Page.IsPostBack)
         {
             FillDropDown();
-            if (Request.QueryString["SupplierID"] != null)
+            if (Request.QueryString["q"] != null)
             {
                 lblPageHeading.Text = "Edit Supplier";
-                FillData(Convert.ToInt32(Request.QueryString["SupplierID"]));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
             }
             else
                 lblPageHeading.Text = "Add Supplier";
@@ -89,7 +92,7 @@ public partial class Content_ASPWMS_Supplier_SupplierAddEdit : System.Web.UI.Pag
         #region Insert or update
 
         SupplierBAL balSupplier = new SupplierBAL();
-        if (Request.QueryString["SupplierID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             if (balSupplier.Insert(entSupplier))
             {
@@ -105,7 +108,7 @@ public partial class Content_ASPWMS_Supplier_SupplierAddEdit : System.Web.UI.Pag
         }
         else  
         {
-            entSupplier.SupplierID = Convert.ToInt32(Request.QueryString["SupplierID"]);
+            entSupplier.SupplierID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balSupplier.Update(entSupplier))
             {
                 Response.Redirect("~/Content/ASPWMS/Supplier/SupplierList.aspx");

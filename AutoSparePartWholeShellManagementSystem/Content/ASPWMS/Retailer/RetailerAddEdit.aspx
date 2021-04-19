@@ -3,10 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" Runat="Server">
-     <asp:Label ID="lblPageHeading" runat="server" Text="Retailer"></asp:Label>
+     Retailer
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
     Retailer
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" runat="Server">
+  <asp:Label ID="lblPageHeading" runat="server" Text="Retailer"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
     <div class="container">
@@ -107,7 +110,7 @@
 
        <div class="row" style="margin:20px;">
             <div class=" col-md-3 text-right" >
-               <b>&nbsp;&nbsp;Email &nbsp;:</b>
+               <b><span class="text-danger">*</span>Email &nbsp;:</b>
             </div>
             
             <div class="col-md-4">
@@ -115,6 +118,9 @@
                
             </div>
             <div class="col-md-4">  
+                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Enter email address"
+                    CssClass="text-danger" Display="Dynamic" ControlToValidate="txtEmail" ValidationGroup="Save"  SetFocusOnError="True"
+                    ></asp:RequiredFieldValidator>
                  <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage=" Enter Emial in  Proper 
 Formate" CssClass="text-danger" Display="Dynamic" ControlToValidate="txtEmail" ValidationGroup="Save"  SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </div>
@@ -122,7 +128,7 @@ Formate" CssClass="text-danger" Display="Dynamic" ControlToValidate="txtEmail" V
 
        <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4" style="padding-left:6rem; margin-bottom:4rem">
+            <div class="col-md-6" style="padding-left:6rem; margin-bottom:4rem">
                 <asp:Button ID="btnSave" runat="server" Text="Save"  CssClass="btntras btn btn-primary margin-10" ValidationGroup="Save" OnClick="btnSave_Click" />
                <asp:Button ID="btnCancle" runat="server" Text="Cancel"  CssClass="btntras btn btn-danger margin-10" OnClick="btnCancle_Click" />
 

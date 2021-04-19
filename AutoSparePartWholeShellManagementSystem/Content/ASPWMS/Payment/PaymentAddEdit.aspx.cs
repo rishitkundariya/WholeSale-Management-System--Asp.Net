@@ -12,12 +12,15 @@ public partial class Content_ASPWMS_Payment_PaymentAddEdit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["PaymentID"] != null)
+            if (Request.QueryString["q"] != null)
             {
                 lblPageHeading.Text = "Edit Payment Details";
-                FillData(Convert.ToInt32(Request.QueryString["PaymentID"]));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
 
             }
             else
@@ -79,9 +82,9 @@ public partial class Content_ASPWMS_Payment_PaymentAddEdit : System.Web.UI.Page
         }
         #endregion
         PaymentBAL balPayment = new PaymentBAL();
-        if(Request.QueryString["PaymentID"] != null)
+        if(Request.QueryString["q"] != null)
         {
-            entPayment.PaymentID = Convert.ToInt32(Request.QueryString["PaymentID"]);
+            entPayment.PaymentID = Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString())));
             if (balPayment.Update(entPayment))
             {
                 Response.Redirect("~/Content/ASPWMS/Payment/PaymentList.aspx");

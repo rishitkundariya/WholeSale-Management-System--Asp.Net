@@ -13,6 +13,9 @@ public partial class Content_ASPWMS_Supplier_SupplierList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             FillGridview();
@@ -54,7 +57,11 @@ public partial class Content_ASPWMS_Supplier_SupplierList : System.Web.UI.Page
         if (e.CommandName == "DeleteItem")
             DeleteItem(Convert.ToInt32(e.CommandArgument.ToString()));
         if (e.CommandName == "Edit")
-            Response.Redirect(e.CommandArgument.ToString());
+        {
+            string url = "~/Content/ASPWMS/Supplier/SupplierAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString();
+            Response.Redirect(url);
+
+        }
 
     }
 

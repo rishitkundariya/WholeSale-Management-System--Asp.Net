@@ -132,7 +132,25 @@ namespace ASPWMS.BAL
 
         #endregion
 
-
+        #region  Select By UserID
+        public DataTable SelectByUserID(SqlInt32 UserID)
+        {
+            #region Select All
+            DataTable dt = new DataTable();
+            PaymentDAL dalPayment = new PaymentDAL();
+            dt = dalPayment.SelectByUserID(UserID);
+            if (dt != null)
+            {
+                return dt; ;
+            }
+            else
+            {
+                Message = dalPayment.Message;
+                return null;
+            }
+            #endregion
+        }
+        #endregion
 
         #endregion
 

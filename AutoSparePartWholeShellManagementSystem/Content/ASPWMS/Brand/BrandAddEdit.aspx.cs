@@ -16,6 +16,9 @@ public partial class Content_ASPWMS_Brand_BrandAddEdit : System.Web.UI.Page
     #region page load
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             if(Request.QueryString["q"]!=null)

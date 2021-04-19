@@ -14,6 +14,9 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
     #region page load
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             FillGridView();
@@ -100,7 +103,8 @@ public partial class Content_ASPWMS_Payment_PaymentList : System.Web.UI.Page
         }
         if (e.CommandName == "Edit")
         {
-            Response.Redirect(e.CommandArgument.ToString());
+            String url = "~/Content/ASPWMS/Payment/PaymentAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString(); ;
+            Response.Redirect(url);
         }
     }
     #endregion

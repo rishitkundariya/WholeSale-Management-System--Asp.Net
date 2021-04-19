@@ -132,6 +132,27 @@ namespace ASPWMS.BAL
 
         #endregion
 
+        #region Select All BY UserID
+        public DataTable SelectAllByUserID(SqlInt32 UserID)
+        {
+            #region Select all
+            DataTable dt = new DataTable();
+            InvoiceDAL dalInvoice = new InvoiceDAL();
+            dt = dalInvoice.SelectAllByUserID(UserID);
+            if (dt == null)
+            {
+                Message = dalInvoice.Message;
+                return null;
+            }
+            else
+            {
+                return dt;
+            }
+            #endregion
+        }
+
+        #endregion
+
         #endregion 
 
         #region Set Total 

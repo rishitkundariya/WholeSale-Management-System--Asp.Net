@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/MasterPageForHome.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Content_ASPWMS_Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/MasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Content_ASPWMS_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -35,16 +35,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" runat="Server">
     Home
 </asp:Content>
-
+<asp:Content ID="Content5" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
+   Home
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container">
         <span class="text-center">
             <h1>Welcome to ASPWMS</h1>
+             
         </span>
         <hr />
         <h6>
             <p style="font-weight: 600; text-align: justify;">
-                Hello, welcome to the ASPWMS (Auto Spare Part Wholesale Management Sysytem). It's devlop to manage and increase your business. I am trying to devlop system which 
+                Hello and welcome to the ASPWMS (Auto Spare Part Wholesale Management Sysytem). It's devlop to manage and increase your business. I am trying to devlop system which 
              is very helpful to the Wholesaler in many ways. My self Rishit Kundariya, I am devloper of this system. Key features of this System are below.
             </p>
         </h6>
@@ -70,13 +73,13 @@
             <div class="col-md-3 effect">
                 <div class="card text-dark bg-info mb-3 shadowInfo" style="max-width: 18rem;">
                     <div class="card-header">
-                        <h2>Product</h2>
+                        <h2 > <i class="fa ion-ios-list-box"></i> Product</h2>
                     </div>
                     <div class="card-body">
                         <p class="card-text text-left">
-                              <span class="card-title call-from-lable" style="font-size:4rem;vertical-align:middle">
+                              <span class="card-title call-from-lable" style="font-size:2rem;vertical-align:middle">
                                   <asp:Label ID="lblProductCount" runat="server" Text=""></asp:Label> +</span><br /> 
-                            <span style="font-size:1.5rem;">Total Product</span>
+                            <span style="font-size:1rem;">Total Product</span>
 
                         </p>
                     </div>
@@ -88,9 +91,9 @@
                         <h2> <i class="fa fa-user" aria-hidden="true"></i> Retailer</h2>
                     </div>
                     <div class="card-body">
-                          <span class="card-title call-from-lable" style="font-size:4rem;vertical-align:middle">
+                          <span class="card-title call-from-lable" style="font-size:2rem;vertical-align:middle">
                               <asp:Label ID="lblRetailerCount" runat="server" Text=""></asp:Label> +</span> <br />
-                        <span style="font-size:1.5rem;">Retailer</span>
+                        <span style="font-size:1rem;">Retailer</span>
                       
                     </div>
                 </div>
@@ -101,9 +104,9 @@
                         <h3>Net Balance</h3>
                     </div>
                     <div class="card-body">
-                       <span class="card-title call-from-lable" style="font-size:3rem;vertical-align:middle">
+                       <span class="card-title call-from-lable" style="font-size:2rem;vertical-align:middle">
                               <asp:Label ID="lblNetTotal" runat="server" Text=""></asp:Label> <i class="fas fa-rupee-sign"></i></span> <br />
-                        <span style="font-size:1.5rem;">Net Balence </span>
+                        <span style="font-size:1rem;">Net Balence </span>
                     </div>
                 </div>
 
@@ -115,9 +118,9 @@
                         <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Invoice</h2>
                     </div>
                     <div class="card-body">
-                        <span class="card-title call-from-lable" style="font-size:4rem;vertical-align:middle">
+                        <span class="card-title call-from-lable" style="font-size:2rem;vertical-align:middle">
                               <asp:Label ID="lblInvoiceCount" runat="server" Text=""></asp:Label> +</span> <br />
-                        <span style="font-size:1.4rem;"> Order Place </span>
+                        <span style="font-size:1rem;"> Order Place </span>
                     </div>
                 </div>
             </div>

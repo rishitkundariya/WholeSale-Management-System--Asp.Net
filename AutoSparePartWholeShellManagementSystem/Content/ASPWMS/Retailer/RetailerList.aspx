@@ -3,19 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeading" Runat="Server">
-    Retailer
+   <i class="fas ion-ios-people  align-middle"  aria-hidden="true"  ></i> Retailer
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageNameForBreadcrumbs" Runat="Server">
     Retailer List
 </asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphTital" Runat="Server">
+    Retailer List
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" Runat="Server">
      <div class="container">
-         <div class="row ">
-            <div class="col-md-12 text-center">
-                <h2>Retailer List</h2>
-                <hr />
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-md-12" style="float:left">
                 <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" EnableViewState="False"></asp:Label>
@@ -51,7 +49,7 @@
                                     CommandName="DeleteItem" CommandArgument='<%#Eval("RetailerID")%>'  />
                                  <asp:ImageButton ID="hypEdit" runat="server" CssClass=" margin-bottom-5 btntras hrightwidth" CommandName="Edit"
                                         ImageUrl="~/Content/ASPWMS/Assets/assets/img/icon/edit.png"
-                                     CommandArgument='<%#"~/Content/ASPWMS/Retailer/RetailerAddEdit.aspx?RetailerID=" + Eval("RetailerID").ToString() %>' Text="Edit" />
+                                     CommandArgument='<%#Eval("RetailerID") %>' Text="Edit" />
                            </ItemTemplate>
 
 <ItemStyle Width="200px"></ItemStyle>

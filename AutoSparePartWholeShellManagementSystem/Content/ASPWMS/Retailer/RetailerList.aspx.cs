@@ -13,6 +13,9 @@ public partial class Content_ASPWMS_Retailer_RetailerList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
             FillGridViewOfRetailer();
     }
@@ -45,7 +48,11 @@ public partial class Content_ASPWMS_Retailer_RetailerList : System.Web.UI.Page
         if (e.CommandName == "DeleteItem")
             DeleteItem(Convert.ToInt32(e.CommandArgument.ToString().Trim()));
         if (e.CommandName == "Edit")
-            Response.Redirect(e.CommandArgument.ToString());
+        {
+            string url = "~/Content/ASPWMS/Retailer/RetailerAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(e.CommandArgument.ToString())).ToString();
+            Response.Redirect(url);
+        }
+           
     }
 
     #region Delete Data

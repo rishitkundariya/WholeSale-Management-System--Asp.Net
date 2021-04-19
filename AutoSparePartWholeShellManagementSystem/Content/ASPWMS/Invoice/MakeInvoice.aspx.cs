@@ -14,17 +14,20 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
     DataTable Dt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(Session["UserID"] == null)
+            Response.Redirect("~/Content/ASPWMS/Login.aspx");
+
         if (!Page.IsPostBack)
         {
             CommonFillMethod.FillStateDropDownListProduct(ddlProduct);
             AddColumnInDatatable();
-            if (Request.QueryString["InvoiceID"] == null)
+            if (Request.QueryString["q"] == null)
             {
                 lblPageHeading.Text = "Add Items";
             }
             else
             {
-                FillData(Convert.ToInt32(Request.QueryString["InvoiceID"]));
+                FillData(Convert.ToInt32(Cryptography.DecryptQueryString(HttpUtility.UrlDecode(Request.QueryString["q"].ToString()))));
                 lblPageHeading.Text = "Edit Items";
             }
         }
@@ -216,12 +219,15 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
     #region Cancle Button Click Event
     protected void btnCancle_Click(object sender, EventArgs e)
     {
-        if (Request.QueryString["InvoiceID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             InvoiceBAL balInvoice = new InvoiceBAL();
             if (balInvoice.Delete(Convert.ToInt32(Session["InvoiceID"].ToString())))
             {
+                Session.Remove("Data");
+                Session.Remove("InvoiceID");
                 Response.Redirect("~/Content/ASPWMS/Invoice/InvoiceList.aspx");
+                
             }
             else
             {
@@ -231,9 +237,11 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
         }
         else
         {
-            string url = "~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?InvoiceID=" + Session["InvoiceID"].ToString();
+            string url = "~/Content/ASPWMS/Invoice/InvoiceAddEdit.aspx?q=" + HttpUtility.UrlEncode(Cryptography.EncryptQueryString(Session["InvoiceID"].ToString())).ToString();
+            Session.Remove("Data");
+            Session.Remove("InvoiceID");
             Response.Redirect(url);
-            Session.Clear();
+           
         }
 
     }
@@ -242,7 +250,7 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
     #region Make Invoice Button Click Event
     protected void btnMakeInvoice_Click(object sender, EventArgs e)
     {
-        if (Request.QueryString["InvoiceID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             addItems(Convert.ToInt32(Session["InvoiceID"].ToString()));
         }
@@ -282,6 +290,7 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
                 entIvoiceItem.Quantity = Convert.ToInt32(dtRow[2].ToString());
                 entIvoiceItem.Price = Convert.ToDecimal(dtRow[3].ToString());
                 Total += Convert.ToDecimal(dtRow[4].ToString());
+                Total = Math.Round(Total);
                 if (balIvoiceItem.Insert(entIvoiceItem))
                 {
                     response = true;
@@ -310,8 +319,14 @@ public partial class Content_ASPWMS_Invoice_MakeInvoice : System.Web.UI.Page
         {
             if (response == true)
             {
+                if (Request.QueryString["q"] == null)
+                {
+                    Email.sendEmailOfInvoice(Convert.ToInt32(InvoiceID.ToString()),Convert.ToInt32(Math.Round(Total)));
+                }
+                Session.Remove("Data");
+                Session.Remove("InvoiceID");
                 Response.Redirect("~/Content/ASPWMS/Invoice/InvoiceList.aspx");
-                Session.Clear();
+              
             }
         }
         else
