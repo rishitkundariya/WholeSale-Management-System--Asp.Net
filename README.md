@@ -21,7 +21,7 @@
        <li> In this when you enter correct username than mail password into registor mail.</li>
        </ul>
 <img src="https://github.com/RishitKundariya/WholeSaleManagementSystem/blob/main/Image/forget_Password.png" class="img-fluid">
-<h2> Lodin as Admin </h2>
+<h2> Login as Admin </h2>
 <ul>
  <li> When You login as admin you find home screen. In this Some feature and statistics are there.</li>
  <li> left side is manu bar in these find link of different page.</li>
