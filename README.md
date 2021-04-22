@@ -1,6 +1,8 @@
 # Wholesale Management System
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-
+<h2> Video </h2>
+<img src="https://github.com/RishitKundariya/anandmotorcycle.github.io/blob/master/images/Documentation%20Video%201.gif" class="img-fluid">
+<br>
 <h3> Some Features of this system are below.</h3>
 
  <ul>
