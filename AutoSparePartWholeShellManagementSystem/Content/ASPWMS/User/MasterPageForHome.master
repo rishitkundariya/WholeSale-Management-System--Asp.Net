@@ -1,0 +1,267 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageForHome.master.cs" Inherits="Content_ASPWMS_MasterPageForHome" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title>ASPWMS</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="ASPWMS Wholesale MAnagement System">
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/img/favicon.png")%>" rel="icon">
+    <link href="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/img/apple-touch-icon.png")%>" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+
+
+    <!-- Template Main CSS File -->
+    <link href="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/css/dark.css")%>" rel="stylesheet">
+    <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/js/settings.js")%>"></script>
+   
+    <style>
+        .margin-10 {
+            margin: 10px;
+        }
+
+        .margin-top-5 {
+            margin-top: 5px;
+        }
+
+        .margin-bottom-5 {
+            margin-bottom: 5px;
+        }
+
+        .margin-top-5 {
+            margin-top: 5px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+
+        #form1 {
+            display: flex;
+            min-height: 100%;
+            flex-direction: column;
+        }
+
+        article {
+            flex: 1;
+        }
+
+        #content-wrap {
+            padding-bottom: 2.5rem; /* Footer height */
+        }
+
+        .rounded-sm {
+            border-radius: 0.5rem !important;
+        }
+
+        .mr-10 {
+            margin-right: 10px;
+        }
+
+        .ml-10 {
+            margin-left: 10px;
+        }
+        /*.btntras:hover{
+            transform: scale(1.1); 
+          
+         }
+          .btn:hover{
+            transform: scale(1.1); 
+          
+         }*/
+        .hrightwidth {
+            width: 1.4em;
+            height: 1.4em;
+        }
+
+        .hrightwidth:hover {
+                transform: scale(1.2);
+        }
+
+        .text-right {
+            text-align: left !important;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 .25rem 0.5rem rgba(0, 123, 255,.4);
+        }
+
+        .btn-danger:hover {
+            box-shadow: 0 .25rem 0.5rem rgba(255,0,0,.4);
+        }
+
+        .btn-warning:hover {
+            box-shadow: 0 .25rem 0.5rem rgba(255,255, 7,.4);
+        }
+    </style>
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+  <!-- ======= Header ======= -->
+        <div class="splash active">
+            <div class="splash-icon"></div>
+        </div>
+
+        <div class="wrapper">
+            <nav id="sidebar" class="sidebar">
+                <a class="sidebar-brand" href="#">ASPWMS
+                </a>
+                <div class="sidebar-content">
+
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-header"></li>
+                        <li class="sidebar-item">
+                            <asp:HyperLink ID="hyphome" runat="server" NavigateUrl="~/Content/ASPWMS/User/Home.aspx" CssClass="sidebar-link collapsed">
+                           
+                                <i class="align-middle mr-2 fas fa-fw fa-home"></i><span class="align-middle">Dashboard</span>
+                          </asp:HyperLink>
+                        </li>
+                       
+                       
+                       
+                        <li class="sidebar-item">
+                            <asp:HyperLink ID="hypPayment" runat="server" CssClass="sidebar-link" NavigateUrl="~/Content/ASPWMS/User/PaymentList.aspx"><i class="align-middle mr-2 fas fa-fw fa-money-check-alt"></i>Payment</asp:HyperLink>
+                        </li>
+                      
+                        <li class="sidebar-item">
+                            <asp:HyperLink ID="hypInvoice" runat="server" CssClass="sidebar-link" NavigateUrl="~/Content/ASPWMS/User/InvoiceList.aspx"> <i class="align-middle mr-2 fas fa-fw fa-file-alt"></i>Invoice</asp:HyperLink>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <!-- .nav-menu -->
+            <div class="main">
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex mr-2">
+                        <i class="hamburger align-self-center"></i>
+                    </a>
+
+
+
+                    <div class="navbar-collapse collapse">
+                        <ul class="navbar-nav ml-auto">
+
+
+                            <li class="nav-item dropdown ml-lg-2">
+                                <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-toggle="dropdown">
+                                    <i class="align-middle fas fa-cog"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="userDropdown" style="padding:0.5rem;">
+                                    <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" CssClass="btn btn-danger float-left"   OnClick="btnSignOut_Click"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+               <main class="content">
+                    <div class="container-fluid">
+
+                        <div class="header">
+                            <h1 class="header-title">
+                                <asp:ContentPlaceHolder ID="cphPageHeading" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active">
+                                        <asp:HyperLink ID="hypDashboard" runat="server" NavigateUrl="~/Content/ASPWMS/User/Home.aspx" >Dashboard</asp:HyperLink> </li>
+                                    <li class="breadcrumb-item active">
+                                        <asp:ContentPlaceHolder ID="cphPageNameForBreadcrumbs" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </li>
+
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class=" mb-0">
+                                            <asp:ContentPlaceHolder ID="cphTital" runat="server">
+                                            </asp:ContentPlaceHolder></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-12">
+                                            <asp:ContentPlaceHolder ID="cphmMainContent" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            
+                 </main>
+                <footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-8 text-left">
+							<ul class="list-inline">
+								<b>All Rights Reserved & Designed by 180540107094</b>
+							</ul>
+						</div>
+						<div class="col-4 text-right">
+							<p class="mb-0">
+								<b>&copy; 2020 - P2R Technology<b>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+            </div>
+
+        </div>
+
+        <!-- ======= Footer ======= -->
+
+        <!-- End Footer -->
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://kit.fontawesome.com/91e203ee36.js" crossorigin="anonymous"></script>
+        <!-- Template Main JS File -->
+
+        <script src="<%=ResolveClientUrl("~/Content/ASPWMS/Assets/assets/js/app.js")%>"></script>
+    </form>
+</body>
+</html>

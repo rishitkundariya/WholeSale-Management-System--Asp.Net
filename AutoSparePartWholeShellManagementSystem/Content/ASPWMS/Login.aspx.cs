@@ -12,7 +12,16 @@ public partial class Content_ASPWMS_Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      
+        if (Session["RetailerID"] != null)
+        {
+            Response.Redirect("~/Content/ASPWMS/User/Home.aspx");
+           
+        }
+        if (Session["UserID"]!=null && Session["UserID"].ToString() == "1")
+        {
+            Response.Redirect("~/Content/ASPWMS/Home.aspx");
+        }
+        
     }
 
     protected void btnForgetPassword_Click(object sender, EventArgs e)

@@ -153,6 +153,24 @@ namespace ASPWMS.BAL
 
         #endregion
 
+        #region Borrow 
+        public DataTable BorrowList()
+        {
+            DataTable dt = new DataTable();
+            RetailerDAL dalRetailer = new RetailerDAL();
+            dt = dalRetailer.BorrowList();
+            if (dt != null)
+            {
+                return dt;
+            }
+            else
+            {
+                Message = dalRetailer.Message;
+                return null;
+            }
+        }
+        #endregion
+
         #region Reatailer Count
         public Int32 ReatailerCount()
         {

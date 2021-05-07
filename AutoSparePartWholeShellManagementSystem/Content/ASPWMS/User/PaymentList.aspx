@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/MasterPageForHome.master" AutoEventWireup="true" CodeFile="PaymentList.aspx.cs" Inherits="Content_ASPWMS_User_PaymentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/User/MasterPageForHome.master" AutoEventWireup="true" CodeFile="PaymentList.aspx.cs" Inherits="Content_ASPWMS_User_PaymentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

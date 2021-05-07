@@ -153,6 +153,44 @@ namespace ASPWMS.BAL
 
         #endregion
 
+        #region Select Invoice Group Data
+        public DataTable SelectGroupBy()
+        {
+            DataTable dt = new DataTable();
+            InvoiceDAL dalInvoice = new InvoiceDAL();
+            dt = dalInvoice.SelectGroupBy();
+            if (dt == null)
+            {
+                Message = dalInvoice.Message;
+                return null;
+            }
+            else
+            {
+                return dt;
+            }
+        }
+
+        #endregion
+        
+        #region Select All BY Date
+        public DataTable SelectAllByDate(SqlString Date)
+        {
+            DataTable dt = new DataTable();
+            InvoiceDAL dalInvoice = new InvoiceDAL();
+            dt = dalInvoice.SelectAllByDate(Date);
+            if (dt == null)
+            {
+                Message = dalInvoice.Message;
+                return null;
+            }
+            else
+            {
+                return dt;
+            }
+        }
+
+        #endregion
+
         #endregion 
 
         #region Set Total 

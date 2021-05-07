@@ -97,7 +97,7 @@ public partial class Content_ASPWMS_Bike_BikeAddEdit : System.Web.UI.Page
             if(balBike.Insert(entBike))
             {
                 ClearControl();
-                lblMessage.CssClass = "alert-success";
+                lblMessage.CssClass = "text-success";
                 lblMessage.Text = "Data Enter Successfully";
             }
             else

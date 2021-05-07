@@ -96,4 +96,11 @@ public partial class Content_ASPWMS_Invoice_InvoiceList : System.Web.UI.Page
        
     }
     #endregion
+
+    #region btn InvoiceList By date Click Event
+    protected void btnInvoiceList_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Content/ASPWMS/Invoice/InvoiceListByDate.aspx"); 
+    }
+    #endregion
 }

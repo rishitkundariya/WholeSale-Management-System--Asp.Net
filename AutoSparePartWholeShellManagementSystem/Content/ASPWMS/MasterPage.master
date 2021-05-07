@@ -179,7 +179,10 @@
                         <li class="sidebar-item">
                             <asp:HyperLink ID="hypInvoice" runat="server" CssClass="sidebar-link" NavigateUrl="~/Content/ASPWMS/Invoice/InvoiceList.aspx"> <i class="align-middle mr-2 fas fa-fw fa-file-alt"></i>Invoice</asp:HyperLink>
                         </li>
-                        
+                        <li class="sidebar-item">
+                             <asp:HyperLink ID="hypBorrow" runat="server" CssClass="sidebar-link" NavigateUrl="~/Content/ASPWMS/Borrow/BorrowList.aspx" > <i class="align-middle mr-2 fas fa-fw fa-balance-scale"></i>Borrow</asp:HyperLink>
+                            
+                        </li>
                             
                                 <li class="sidebar-item">
                                     <asp:HyperLink ID="hypBrand" runat="server"  CssClass="sidebar-link" NavigateUrl="~/Content/ASPWMS/Brand/BrandList.aspx"> <i class="align-middle mr-2 fas fa-fw fa-braille"></i>Brand</asp:HyperLink>

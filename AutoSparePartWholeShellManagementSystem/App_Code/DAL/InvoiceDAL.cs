@@ -303,6 +303,102 @@ namespace ASPWMS.DAL
 
         #endregion
 
+        #region Select Invoice Group Data
+        public DataTable SelectGroupBy()
+        {
+            #region Select Invoice Group Data
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Invoice_SelectGroupByDate";
+
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            if (objSDR.HasRows)
+                            {
+                                dt.Load(objSDR);
+                                return dt;
+                            }
+                            else
+                                return null;
+
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Message = e.Message;
+                    return null;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+
+                }
+            }
+            #endregion
+        }
+
+        #endregion
+
+        #region Select All BY Date
+        public DataTable SelectAllByDate(SqlString Date)
+        {
+            #region Select all By Date
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Invoice_SelectAllByDate";
+                        objCmd.Parameters.AddWithValue("@Date", Date);
+                        using (SqlDataReader objSDR = objCmd.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            if (objSDR.HasRows)
+                            {
+                                dt.Load(objSDR);
+                                return dt;
+                            }
+                            else
+                                return null;
+
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Message = e.Message;
+                    return null;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+
+                }
+            }
+            #endregion
+        }
+
+        #endregion
+
         #endregion
 
         #region Set Total 

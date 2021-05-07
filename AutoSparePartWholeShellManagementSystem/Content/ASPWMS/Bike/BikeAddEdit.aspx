@@ -20,8 +20,8 @@
     <div class="container ">
 
        <div class="row">
-            <div class="col-md-12">
-                <asp:Label ID="lblMessage" runat="server" Text="" CssClass="text-danger" EnableViewState="False"></asp:Label>
+            <div class="col-md-12" >
+                <asp:Label ID="lblMessage" runat="server" Text=""  CssClass="text-danger" EnableViewState="False" ></asp:Label>
             </div>
         </div>
     

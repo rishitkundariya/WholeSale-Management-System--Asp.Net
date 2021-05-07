@@ -13,13 +13,13 @@
     Add | Edit Item In  Invoice
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphmMainContent" runat="Server">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row" style="margin-bottom: 25px">
-            <div class=" col-md-2">
-                <b>Product Name</b>
+            <div class=" col-md-3">
+                <b>Product Name :</b>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-7">
                 <asp:DropDownList ID="ddlProduct" runat="server"
                     CssClass="form-control"
                     OnSelectedIndexChanged="ddlProduct_SelectedIndexChanged"
@@ -35,11 +35,16 @@
                     InitialValue="-1"></asp:RequiredFieldValidator>
             </div>
 
-            <div class=" col-md-2">
-                <b><span class="text-danger">*</span>Quntatity</b>
+          
+        </div>
+
+
+        <div class="row" style="margin-bottom:2rem;">
+              <div class=" col-md-2">
+                <b><span class="text-danger">*</span>Quntatity :</b>
             </div>
-            <div class="col-md-2">
-                <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control text-center" TextMode="Number"></asp:TextBox>
+            <div class="col-md-3">
+                <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control text-center font-weight-bold" TextMode="Number"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvtxtprice" runat="server"
                     ErrorMessage="Enter Quantity"
                     Display="Dynamic"
@@ -47,11 +52,11 @@
                     ControlToValidate="txtQuantity"
                     ValidationGroup="Save"></asp:RequiredFieldValidator>
             </div>
-            <div class=" col-md-1 ">
+            <div class="offset-1 col-md-2 ">
                 <b>Price : </b>
             </div>
-            <div class="col-md-1">
-                <asp:Label ID="lblPrice" runat="server" Text="" CssClass=" text-center col-from-label"></asp:Label>
+            <div class="col-md-3">
+                <asp:Label ID="lblPrice" runat="server" Text="" CssClass=" text-center col-from-label form-control font-weight-bold"></asp:Label>
 
             </div>
         </div>

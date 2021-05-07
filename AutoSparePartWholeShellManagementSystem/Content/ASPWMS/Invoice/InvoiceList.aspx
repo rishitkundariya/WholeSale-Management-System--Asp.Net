@@ -21,8 +21,10 @@
             </div>
         </div>
         <div class="row">
-
-            <div class="col-md-12 margin-bottom-5 text-right mb-3">
+            <div class="col-md-9 margin-bottom-5 text-right mb-3 offset-1">
+                <asp:Button ID="btnInvoiceList" runat="server" Text="Group Invoice By Date" CssClass="btn btn-info " Style="float: right" OnClick="btnInvoiceList_Click"/>
+            </div>
+            <div class="col-md-2 margin-bottom-5 text-right mb-3">
                 <asp:Button ID="btnAdd" runat="server" Text="Add Invoice" CssClass="btn btn-primary " Style="float: right" OnClick="btnAdd_Click" />
             </div>
         </div>

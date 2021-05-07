@@ -11,11 +11,12 @@ public partial class Content_ASPWMS_USER_Home : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["UserID"] == null)
+        if (Session["UserID"] == null || Session["RetailerID"] == null)
             Response.Redirect("~/Content/ASPWMS/Login.aspx");
         else
             fillData();
     }
+
     #region Fill Data 
     private void fillData()
     {
@@ -29,7 +30,7 @@ public partial class Content_ASPWMS_USER_Home : System.Web.UI.Page
         }
         else
         {
-            lblRetailerName.Text = entRetailer.RetailerName.ToString();
+            lblRetailerName.Text += entRetailer.RetailerName.ToString();
             lblShopName.Text = entRetailer.ShopName.ToString();
             lblTrasportName.Text = entRetailer.TransportName.ToString();
             lblMobileNO.Text = entRetailer.MobileNumber.ToString();
@@ -42,6 +43,7 @@ public partial class Content_ASPWMS_USER_Home : System.Web.UI.Page
     #region change Password Panel Show Button Click Event
     protected void btnChangePassword_Click(object sender, EventArgs e)
     {
+        lblRetailerName.Visible = false;
         pnChangePassword.Visible = true;
         pnContent.Visible = false;
         txtOldPassword.Focus();
@@ -54,12 +56,14 @@ public partial class Content_ASPWMS_USER_Home : System.Web.UI.Page
     {
         pnChangePassword.Visible = false;
         pnContent.Visible = true;
+        lblRetailerName.Visible = true;
     }
     #endregion
 
     #region Change Password Click Event
     protected void btnChgPassword_Click(object sender, EventArgs e)
     {
+        
         if(txtNewPassword.Text.Trim() != txtReNewPassword.Text.Trim())
         {
             lblMessage.Text = "Enter Same Password ";

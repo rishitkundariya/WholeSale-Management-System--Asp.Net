@@ -49,12 +49,7 @@
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="input100"  TextMode="Password" EnableViewState="False"></asp:TextBox>
                     <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
-                <div class="contact100-form-checkbox">
-                    <input id="ckb1" class="input-checkbox100" name="remember-me" type="checkbox">
-                    <label class="label-checkbox100" for="ckb1">
-                    Remember me
-                    </label>
-                    </input></div>
+                
                 <div class="container-login100-form-btn">
                     <asp:Button ID="btnLogin" runat="server" CssClass=" btn btn-light form-control" Text="Login" OnClick="btnLogin_Click" />
                 </div>

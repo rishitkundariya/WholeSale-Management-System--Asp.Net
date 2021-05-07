@@ -299,6 +299,46 @@ namespace ASPWMS.DAL
 
         #endregion
 
+        #region Borrow 
+       
+        public DataTable BorrowList()
+        {
+            #region Select BorrowList
+            using (SqlConnection objConn = new SqlConnection(ConnectionString))
+            {
+                try
+                {
+                    if (objConn.State != ConnectionState.Open)
+                        objConn.Open();
+
+                    using (SqlCommand objCmd = objConn.CreateCommand())
+                    {
+                        objCmd.CommandType = CommandType.StoredProcedure;
+                        objCmd.CommandText = "PR_Retailer_BorrowSelectALL";
+                        DataTable dt = new DataTable();
+                        using (SqlDataReader objSdr = objCmd.ExecuteReader())
+                        {
+                            dt.Load(objSdr);
+                        }
+                        return dt;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Message = ex.Message;
+                    return null;
+                }
+                finally
+                {
+                    if (objConn.State == ConnectionState.Open)
+                        objConn.Close();
+                }
+            }
+            #endregion
+        }
+       
+        #endregion Borrow
+
         #region Reatailer Count
         public Int32 ReatailerCount()
         {

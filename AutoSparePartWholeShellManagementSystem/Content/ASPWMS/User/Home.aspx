@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/MasterPageForHome.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Content_ASPWMS_USER_Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Content/ASPWMS/User/MasterPageForHome.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Content_ASPWMS_USER_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -8,8 +8,8 @@
     Home
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphTital" runat="Server">
-    Welcome
-    <asp:Label ID="lblRetailerName" runat="server" Text="r K"></asp:Label>
+    
+    <asp:Label ID="lblRetailerName" runat="server" Text="Welcome " EnableViewState="false"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphmMainContent" runat="Server">
     <div class="container">
@@ -114,7 +114,7 @@
              <div class="row margin-10">
                 <div class="col-md-12 text-center">
                      <asp:Button ID="btnChgPassword" runat="server" Text="Change Password" CssClass="btn btn-primary margin-10" ValidationGroup="ChangePassword" OnClick="btnChgPassword_Click" />
-                    <asp:Button ID="btnHide" runat="server" Text="Cancle" CssClass="btn btn-danger margin-10" OnClick="btnHide_Click"/>
+                    <asp:Button ID="btnHide" runat="server" Text="Cancel" CssClass="btn btn-danger margin-10" OnClick="btnHide_Click"/>
                 </div>
                 
             </div>

@@ -57,7 +57,7 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
 
         CityBAL balCity = new CityBAL();
         
-        if (Request.QueryString["CityID"] == null)
+        if (Request.QueryString["q"] == null)
         {
             if (balCity.Insert(entCity))
             {
@@ -106,7 +106,7 @@ public partial class Content_ASPWMS_City_CityAddEdit : System.Web.UI.Page
         {
             if (entCity.CityName.Value != null)
                 txtCityName.Text = entCity.CityName.ToString();
-            if (entCity.Pincode.Value != null)
+            if (entCity.Pincode != null)
                 txtPincode.Text = entCity.Pincode.ToString();
         }
        

@@ -30,7 +30,7 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("Email", "Password of your email account");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
         smtp.EnableSsl = true;
         String Password = entRetailer.RetailerName.ToString().Substring(0, 2) + entRetailer.MobileNumber.ToString().Substring(5);
         MailMessage msg = new MailMessage();
@@ -38,7 +38,7 @@ public class Email
         msg.Body = "Thank you for choosing WMS. We hope you had a smooth experience. \n\n" + "Dear , " + entRetailer.RetailerName.ToString() + " welcome in the WMS  Community \n" + "login Cedencial for our WMS is below \n" + "Username  : " + entRetailer.MobileNumber.ToString() +
             " \nPassword :  " + Password + "\n\nIf you have any query contact us at wms.p2r@gmail.com. \n\n\n\n" + " \n This is system Generated email.";
         msg.To.Add(entRetailer.Email.ToString());
-        msg.From = new MailAddress("WMS(p2r) <Email>");
+        msg.From = new MailAddress("WMS(p2r) <wms.p2r@gmail.com>");
         try
         {
             smtp.Send(msg);
@@ -63,14 +63,14 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("Email", "Password of your email account");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Invoice is Generated at WMS";
         msg.Body = "Thank you for choosing WMS. We hope you had a smooth experience. \n\n" + "Dear, " + entRetailer.RetailerName.ToString() + " Thank you for your order. Order details are below \n\n" + "InvoiceID : "+entInvoice.InvoiceID.ToString()  + "\nDate  :  " + entInvoice.Date.ToString() +
             "\nAmount  :  " + Total.ToString() + "\n\n If you have any query contact us at wms.p2r@gmail.com. \n\n\n" + " \n This is system Generated email.";
         msg.To.Add(entRetailer.Email.ToString().Trim());
-        msg.From = new MailAddress("WMS(p2r) <Email>");
+        msg.From = new MailAddress("WMS(p2r) <wms.p2r@gmail.com>");
         try
         {
             smtp.Send(msg);
@@ -92,14 +92,14 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("Email", "Password of your email account");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Forget Password ";
         msg.Body = "Thank you for choosing WMS. We hope you had a smooth experience. \n\n" + "Dear, " + entRetailer.RetailerName.ToString() + " Your Password is "  + entUser.Password.ToString() +
               ". \n\n If you have any query contact us at wms.p2r@gmail.com. \n\n\n" + " \n This is system Generated email.";
         msg.To.Add(entRetailer.Email.ToString());
-        msg.From = new MailAddress("WMS(p2r) <Email>");
+        msg.From = new MailAddress("WMS(p2r) <wms.p2r@gmail.com>");
         try
         {
             smtp.Send(msg);

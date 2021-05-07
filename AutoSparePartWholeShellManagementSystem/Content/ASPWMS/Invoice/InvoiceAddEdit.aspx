@@ -25,11 +25,11 @@
 
         <div class="row" style="margin: 10px;">
 
-            <div class="offset-md-3 col-md-2 text-right" style="float: right; vertical-align: middle;">
+            <div class="offset-md-2 col-md-3 text-right" style="float: right; vertical-align: middle;">
                <b> <span class="text-danger">*</span>Shop Name:</b>
             </div>
 
-            <div class=" col-md-3" style="margin-bottom: 20px;">
+            <div class=" col-md-5" style="margin-bottom: 20px;">
                 <asp:DropDownList ID="ddlShopList" runat="server" CssClass="form-control select2me"  OnSelectedIndexChanged="ddlShopList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="rfvddlShopName" runat="server" ErrorMessage="Select Shop Name " CssClass="text-danger" Display="Dynamic" ControlToValidate="ddlShopList"  ValidationGroup="save" InitialValue="-1" SetFocusOnError="True"></asp:RequiredFieldValidator>
             </div>

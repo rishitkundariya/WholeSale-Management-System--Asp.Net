@@ -72,7 +72,7 @@
         .fontsi {
             font-size: 1.7rem;
             font-family: sans-serif;
-            font-weight: 900;
+            font-weight: 600;
             line-height:4rem;
         }
     </style>
@@ -82,11 +82,19 @@
         <div class="container-fluid">
             <div class="row" id="invoice">
                 <div class="col-md-12">
-                    <div class="row" style="margin-bottom: 1rem;">
-                        <div class="col-md-12 text-center">
-                            <h1>Invoice</h1>
+                    <div class="row" style="margin-bottom: 2rem;margin-left:2rem;margin-right:2rem;">
+                        <div class="col-md-5 " style="text-align:left;">
+                             <span style="font-size:4rem;font-weight:700;" > ASPWMS </span><br />
+                           <span style="font-size:1.5rem;font-weight:600;">   Rajkot, Gujrat, India - 360005 </span><br />
+                            <span style="font-size:1.5rem;font-weight:600;">   Email : wms.p2r@gmail.com </span><br />
+                            <span style="font-size:1.5rem;font-weight:600;">   Mobile No : 9428049058 </span><br />
+                        </div>
+                        <div class="offset-3 col-md-4 text-center">
+                                        <span style="font-size:4rem;font-weight:700"> Invoice </span>
                         </div>
                     </div>
+                    <hr style="height:0.01px;font-weight:800;border:3px solid black;background-color:black;margin-bottom:3rem;"/>
+
                     <div class="row bordertlr mt10 ml10 mr10 fontsi" style="border-bottom: 1px solid black">
                         <div class="col-md-6">
                             <b>M/S :</b>
@@ -145,13 +153,13 @@
 
 
                     <div class="row ml10 mr10 mt10">
-                        <div class="col-md-6">
-                            1. Goods Ones Sold Will Not Be Taken Back.<br />
-                            2.This is computer Generated Invoice.<br />
+                        <div class="col-md-6" style="font-weight:500;font-size:1rem;">
+                            1.Goods Ones Sold Will Not Be Taken Back.<br />
+                            2.This is computer generated Invoice.<br />
 
                         </div>
                         <div class="col-md-3 fontsi text-right" style="text-align: justify">
-                            <b>Grand Total :</b>
+                            <b>Bill Amount :</b>
                         </div>
                         <div class="col-md-3 fontsi">
                             ₹ <asp:Label ID="lblGrandTotal" runat="server"></asp:Label> 
