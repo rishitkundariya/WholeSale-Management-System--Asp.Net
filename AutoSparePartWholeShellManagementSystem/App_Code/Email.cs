@@ -30,7 +30,7 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", " password ");
         smtp.EnableSsl = true;
         String Password = entRetailer.RetailerName.ToString().Substring(0, 2) + entRetailer.MobileNumber.ToString().Substring(5);
         MailMessage msg = new MailMessage();
@@ -63,7 +63,7 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "password");
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Invoice is Generated at WMS";
@@ -92,7 +92,7 @@ public class Email
         SmtpClient smtp = new SmtpClient();
         smtp.Host = "smtp.gmail.com";
         smtp.Port = 587;
-        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "ASPWMS123");
+        smtp.Credentials = new System.Net.NetworkCredential("wms.p2r@gmail.com", "password");
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Forget Password ";
